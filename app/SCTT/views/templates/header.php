@@ -58,5 +58,6 @@ $link = array(
 echo "<!-- Put your layout here -->";
 echo link_tag($link);
 ?>
+</head>
 <body>
 <div class="container">
