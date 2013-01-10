@@ -57,6 +57,13 @@ $link = array(
 );
 echo "<!-- Put your layout here -->";
 echo link_tag($link);
+$link = array(
+          'href' => 'css/default.css',
+          'rel' => 'stylesheet',
+          'type' => 'text/css',
+          'media' => 'screen'
+);
+echo link_tag($link);
 ?>
 </head>
 <body>
