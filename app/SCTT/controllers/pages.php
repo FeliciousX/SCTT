@@ -2,6 +2,23 @@
 
 class Pages extends CI_Controller {
 
+	private $nav_list = array();
+
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->nav_list = array(
+					'Home',
+					'About Us',
+					'Tour Packages',
+					'Photo Gallery',
+					'About Sarawak &amp; Sabah',
+					'Testimonial',
+					'Contact Us');
+	}
+
+
 	/**
 	 * Index Page for this controller. Shows error 404 if page not found.
 	 * @var page - string for page name
@@ -15,7 +32,7 @@ class Pages extends CI_Controller {
 		}
 		
 		$data['title'] = ucfirst($page); // Capitalize the first letter
-		// $data['navList'] = _get_nav_bar_list();
+		$data['nav_list'] = $this->nav_list;
 		// $data['attributes'] = _get_nav_bar_attrib();
 		
 		$this->load->view('templates/head', $data);

@@ -11,60 +11,68 @@ echo doctype('html5');
 <?php
 
 $link = array(
-          'href' => 'css/1140.css',
+          'href' => 'css/grid/1140.css',
           'rel' => 'stylesheet',
           'type' => 'text/css',
           'media' => 'screen'
 );
 echo link_tag($link);
 echo
-"<!--[if lte IE 7]>
-<link rel=\"stylesheet\" href=\"css/ie.css\" type=\"text/css\" media=\"screen\" />
-<![endif]-->";
+"\n<!--[if lte IE 7]>
+<link rel=\"stylesheet\" href=\"css/grid/ie.css\" type=\"text/css\" media=\"screen\" />
+<![endif]-->\n";
 
 $link = array(
-          'href' => 'css/typeimg.css',
+          'href' => 'css/grid/typeimg.css',
           'rel' => 'stylesheet',
           'type' => 'text/css',
           'media' => 'screen'
 );
-echo "<!-- Type and image presets -->";
+echo "\n<!-- Type and image presets -->\n";
 echo link_tag($link);
 
 $link = array(
-          'href' => 'css/smallerscreen.css',
+          'href' => 'css/grid/smallerscreen.css',
           'rel' => 'stylesheet',
           'type' => 'text/css',
           'media' => 'only screen and (max-width: 1023px)'
 );
-echo "<!-- Make minor type adjustments for 1024 monitors -->";
+echo "\n<!-- Make minor type adjustments for 1024 monitors -->\n";
 echo link_tag($link);
 
 $link = array(
-          'href' => 'css/mobile.css',
+          'href' => 'css/grid/mobile.css',
           'rel' => 'stylesheet',
           'type' => 'text/css',
           'media' => 'handheld, only screen and (max-width: 767px)'
 );
-echo "<!-- Resets grid for mobile -->";
+echo "\n<!-- Resets grid for mobile -->\n";
 echo link_tag($link);
 
 $link = array(
-          'href' => 'css/layout.css',
+          'href' => 'css/grid/layout.css',
           'rel' => 'stylesheet',
           'type' => 'text/css',
           'media' => 'screen'
 );
-echo "<!-- Put your layout here -->";
+echo "\n<!-- Put your layout here -->\n";
 echo link_tag($link);
+
 $link = array(
           'href' => 'css/default.css',
           'rel' => 'stylesheet',
           'type' => 'text/css',
           'media' => 'screen'
 );
-echo link_tag($link);
+echo link_tag($link) . "\n";
+
+$link = array(
+          'href' => 'css/nav.css',
+          'rel' => 'stylesheet',
+          'type' => 'text/css',
+          'media' => 'screen'
+);
+echo link_tag($link) . "\n";
 ?>
 </head>
 <body>
-<div class="container">

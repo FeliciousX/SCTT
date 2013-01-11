@@ -40,6 +40,8 @@
 
 $route['default_controller'] = "pages/index";
 $route['(:any)'] = 'pages/index/$1';
+// $route['package/(:any)'] = 'pages/package/$2';
+// $route['category/(:any)'] = 'pages/category/$2';
 $route['404_override'] = '';
 
 

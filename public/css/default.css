@@ -4,10 +4,9 @@
 }*/
 
 body {
-	background-image: url('../images/bg/bg1.png');
+	background-image: url('../images/bg/bg3.jpg');
 	background-repeat:no-repeat;
 	background-attachment:fixed;
-	background-size: 90%;
 	background-color: #000;
 	background-position: center;
 	font-family: "Cronos Pro","Courier New","Georgia",serif;
@@ -44,7 +43,7 @@ div.toppadding {
 
 div.tilesection {
 /*	GREEN THEME START */
-/*	background-image: linear-gradient(bottom, rgb(5,26,4) 9%, rgb(25,56,6) 55%, rgb(11,71,18) 78%);
+	background-image: linear-gradient(bottom, rgb(5,26,4) 9%, rgb(25,56,6) 55%, rgb(11,71,18) 78%);
 	background-image: -o-linear-gradient(bottom, rgb(5,26,4) 9%, rgb(25,56,6) 55%, rgb(11,71,18) 78%);
 	background-image: -moz-linear-gradient(bottom, rgb(5,26,4) 9%, rgb(25,56,6) 55%, rgb(11,71,18) 78%);
 	background-image: -webkit-linear-gradient(bottom, rgb(5,26,4) 9%, rgb(25,56,6) 55%, rgb(11,71,18) 78%);
@@ -58,9 +57,9 @@ div.tilesection {
 		color-stop(0.55, rgb(25,56,6)),
 		color-stop(0.78, rgb(11,71,18))
 	);
-/*END OF GREEN THEME*/
-
-	background-image: linear-gradient(bottom, rgb(26,4,23) 9%, rgb(54,6,51) 59%, rgb(69,11,49) 92%);
+/*END OF GREEN THEME
+	/* Purple Theme Start */
+	/*background-image: linear-gradient(bottom, rgb(26,4,23) 9%, rgb(54,6,51) 59%, rgb(69,11,49) 92%);
 	background-image: -o-linear-gradient(bottom, rgb(26,4,23) 9%, rgb(54,6,51) 59%, rgb(69,11,49) 92%);
 	background-image: -moz-linear-gradient(bottom, rgb(26,4,23) 9%, rgb(54,6,51) 59%, rgb(69,11,49) 92%);
 	background-image: -webkit-linear-gradient(bottom, rgb(26,4,23) 9%, rgb(54,6,51) 59%, rgb(69,11,49) 92%);
@@ -73,7 +72,7 @@ div.tilesection {
 		color-stop(0.09, rgb(26,4,23)),
 		color-stop(0.59, rgb(54,6,51)),
 		color-stop(0.92, rgb(69,11,49))
-	);
+	);*/
 
 	border: 1px solid #000;
 	height:100%;
