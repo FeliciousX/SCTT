@@ -17,72 +17,31 @@
                           // 'Overnight Tours from Miri', 'Into The Heart of Borneo From Miri', 'Across Borneo From Kuching');
 ?>
 
-<!-- <div class="row">
-    <div class="sixteencol">
-        <div class="row nobottompadding">
-          <h2>Category Name</h2>
-        </div>
-        <div class="row">
-          <a class="tile" href="<?php //echo $tile_link; ?>"><div class="fourcol tile one"><p class="tilefont">First Slot</p></div></a>
-          <div class="fourcol tile one"><p class="tilefont">Second Slot</p></div>
-          <div class="fourcol tile one"><p class="tilefont">Third Slot</p></div>
-          <div class="fourcol tile one last"><p class="tilefont">Fourth Slot</p></div>
-        </div>
-        <div class="row nobottompadding">
-          <h2>Category Name</h2>
-        </div>
-        <div class="row">
-          <div class="fourcol tile"><p class="tilefont">Fifth Slot</p></div>
-          <div class="fourcol tile"><p class="tilefont">Sixth Slot</p></div>
-          <div class="fourcol tile"><p class="tilefont">Seventh Slot</p></div>
-          <div class="fourcol tile last"><p class="tilefont">Eight Slot</p></div>
-        </div>
-        <div class="row nobottompadding">
-          <h2>Category Name</h2>
-        </div>
-        <div class="row">
-          <div class="fourcol tile"><p class="tilefont">Ninth Slot</p></div>
-          <div class="fourcol tile"><p class="tilefont">Tenth Slot</p></div>
-          <div class="fourcol tile"><p class="tilefont">Eleventh Slot</p></div>
-          <div class="fourcol tile last"><p class="tilefont">Twelvth Slot</p></div>
-        </div>
-        <div class="row nobottompadding">
-          <h2>Category Name</h2>
-        </div>
-        <div class="row">
-          <div class="fourcol tile"><p class="tilefont">Thirteenth Slot</p></div>
-          <div class="fourcol tile"><p class="tilefont">Fourteenth Slot</p></div>
-          <div class="fourcol tile"><p class="tilefont">Fifteenth Slot</p></div>
-          <div class="fourcol tile last"><p class="tilefont">Sixteenth Slot</p></div>
-        </div>
-    </div>
-</div> -->
-
-
-
 <?php
   foreach($category_list as $category) {
 ?>
-<div class="row">
-    <div class="sixteencol">
-        <div class="tilesection">
-            <div class="row nobottompadding toppadding">
-            <h2><?php echo $category['name']; ?></h2>
+<div class="container">
+  <div class="row">
+    <div class="span12 main-content startOpacity">
+      <h2><?php echo $category['name']; ?><span><a href="<?php echo base_url('/category') . '/' . $category['main_link']; ?>">More...</a></span></h2>
+      <div class="row">
+        <?php for($i = 0; $i<4; $i++ ) { ?>
+        <div class="span3">
+          <a class="tile" href="package/<?php echo $category['links'][$i]; ?>">
+            <div class="tile one <?php if($i==3) { echo 'last'; } ?>" style = "background-image: url('<?php echo base_url('img/tiles/') . '/' . $category['images'][$i]; ?>');">
+              <p class="tilefont"><?php echo $category['packages'][$i]; ?></p>
             </div>
-            <div class="row">
-                <?php
-                    for($i = 0; $i<4; $i++ ) {
-                ?>
-                <a class="tile" href="package/<?php echo $category['links'][$i]; ?>"><div class="fourcol tile one <?php if($i==3) { echo 'last'; } ?>" style = "background-image: url('images/tiles/<?php echo $category['images'][$i]; ?>');"><p class="tilefont"><?php echo $category['packages'][$i]; ?></p></div></a>
-                <?php    
-                    }
-                ?>
-            </div>
-            <div class="row"><a href="category/<?php echo $category['main_link']; ?>">More</a></div>
+          </a>
         </div>
+        <?php    
+            }
+        ?>
+      </div>
     </div>
+  </div>
 </div>
+      <?php
+        }
+      ?>
 
-<?php
-  }
-?>
+

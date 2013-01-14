@@ -8,14 +8,18 @@ class Pages extends CI_Controller {
 	{
 		parent::__construct();
 
+
+		$this->load->helper('html');
+		$this->load->helper('url');
+
 		$this->nav_list = array(
 					'Home',
-					'About Us',
+					'About',
 					'Tour Packages',
 					'Photo Gallery',
-					'About Sarawak &amp; Sabah',
+					'Sarawak &amp; Sabah',
 					'Testimonial',
-					'Contact Us');
+					'Contact');
 	}
 
 
@@ -33,36 +37,15 @@ class Pages extends CI_Controller {
 		
 		$data['title'] = ucfirst($page); // Capitalize the first letter
 		$data['nav_list'] = $this->nav_list;
-		// $data['attributes'] = _get_nav_bar_attrib();
-		
+		$data['page_uri'] = uri_string();
+		$data['nav_active'] = explode('/', $data['page_uri']);
+
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/navbar', $data);
 		$this->load->view('templates/banner', $data);
 		$this->load->view('pages/'.$page, $data);
 		$this->load->view('templates/footer', $data);
 
-	}
-
-	/**
-	 * Gets the navigation bar list from database
-	 *
-	 * @access 	private
-	 * @return 	associative array of strings
-	 */
-	private function _get_nav_bar_list()
-	{
-		return array();
-	}
-
-	/**
-	 * Gets the navigation bar attribute
-	 *
-	 * @access 	private
-	 * @return associative array of strings
-	 */
-	private function _get_nav_bar_attrib()
-	{
-		return array();
 	}
 
 

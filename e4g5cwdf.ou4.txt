@@ -1,0 +1,48 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   app/SCTT/config/routes.php
+#	modified:   app/SCTT/controllers/pages.php
+#	modified:   app/SCTT/views/pages/category.php
+#	modified:   app/SCTT/views/pages/home.php
+#	modified:   app/SCTT/views/templates/banner.php
+#	modified:   app/SCTT/views/templates/footer.php
+#	modified:   app/SCTT/views/templates/head.php
+#	modified:   app/SCTT/views/templates/navbar.php
+#	modified:   public/css/default.css
+#	deleted:    public/css/grid/1140.css
+#	deleted:    public/css/grid/ie.css
+#	deleted:    public/css/grid/layout.css
+#	deleted:    public/css/grid/mobile.css
+#	deleted:    public/css/grid/smallerscreen.css
+#	deleted:    public/css/grid/typeimg.css
+#	deleted:    public/css/nav.css
+#	deleted:    public/images/bg/bg1.jpg
+#	deleted:    public/images/bg/bg1.png
+#	deleted:    public/images/bg/bg2.jpg
+#	deleted:    public/images/bg/bg3.jpg
+#	deleted:    public/images/bg/bg4.jpg
+#	deleted:    public/images/bg/bg5.jpg
+#	deleted:    public/images/tiles/daykuching/culturalvil.png
+#	deleted:    public/images/tiles/daykuching/frogs.png
+#	deleted:    public/images/tiles/daykuching/kuching.png
+#	deleted:    public/images/tiles/overnight_kuching/bako.png
+#	deleted:    public/images/tiles/overnight_kuching/batang_ai.png
+#	deleted:    public/images/tiles/overnight_kuching/iban_longhouse.png
+#	deleted:    public/images/tiles/overnight_kuching/orang_utan_conserve.png
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	public/.htaccess
+#	public/css/bootstrap.css
+#	public/css/bootstrap.min.css
+#	public/img/
+#	public/index.html
+#	public/js/
+#	public/robots.txt
+
