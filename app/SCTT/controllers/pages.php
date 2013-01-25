@@ -14,7 +14,6 @@ class Pages extends CI_Controller {
 
 		$this->nav_list = array(
 					'Home',
-					'About',
 					'Tour Packages',
 					'Photo Gallery',
 					'Sarawak &amp; Sabah',

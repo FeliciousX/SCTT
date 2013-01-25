@@ -23,7 +23,7 @@
 <div class="container">
   <div class="row">
     <div class="span12 main-content startOpacity">
-      <h2><?php echo $category['name']; ?><span><a href="<?php echo base_url('/category') . '/' . $category['main_link']; ?>">More...</a></span></h2>
+      <h2><?php echo $category['name']; ?></h2>
       <div class="row">
         <?php for($i = 0; $i<4; $i++ ) { ?>
         <div class="span3">
@@ -37,6 +37,11 @@
             }
         ?>
       </div>
+      <ul class="pager">
+         <li class="next">
+            <a class="btnmore" href="<?php echo base_url('/category') . '/' . $category['main_link']; ?>">More &rarr;</a></span>
+         </li>
+      </ul>
     </div>
   </div>
 </div>

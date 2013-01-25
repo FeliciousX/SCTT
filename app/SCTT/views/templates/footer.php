@@ -1,7 +1,10 @@
 <div class="row">
-<div class="sixteencol footer">
-<strong>&copy; 2013 Straits Central Travel &amp; Tour Agencies. All rights reserved.</strong>	
-</div>
+  <div class="footer">
+    <strong>&copy; 2013 Straits Central Travel &amp; Tour Agencies. All rights reserved.</strong> &nbsp; <a class="underline" href="<?php base_url(strtolower('about')) ?>">About Us</a><br />
+    No. 123, Lot 41, Section 33, Tabuan Road, 93100 Kuching, Sarawak, Malaysia <br/>
+    Tel : +6082-242-295 / 241-271 <br />
+    Fax : +6082-235-122 / 240-713 <br />
+  </div>
 </div>
 
 </div> <!-- End of div.container -->

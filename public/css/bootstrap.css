@@ -208,7 +208,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
-  color: #f5c9eb;
+  color: #FFF;
   background-color: #26852d;
 }
 a {
@@ -4359,7 +4359,7 @@ a.thumbnail:hover {
   font-weight: 200;
   line-height: 30px;
   color: inherit;
-  background-color: #eeeeee;
+  background-color: #000;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;

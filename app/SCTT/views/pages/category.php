@@ -11,12 +11,12 @@
         <div class="span12 startOpacity">
             <ul class="breadcrumb">
               <li><a href="<?php echo base_url('tour_packages'); ?>">Tour Packages</a> <span class="divider">/</span></li>
-              <li class="active">Category</li>
+              <li class="active"><?php echo $category['name']; ?></li>
             </ul>
             <div class="row">
                 <div class="span4">
                     <ul class="sidebar nav nav-list">
-                        <li class="nav-header">Category</li>
+                        <li class="nav-header"><?php echo $category['name']; ?></li>
                         <li><a href="<?php echo base_url('/category/package/' . $category['links'][0]); ?>"><?php echo $category['packages'][0]; ?></a></li>
                         <li><a href="<?php echo base_url('/category/package/' . $category['links'][1]); ?>"><?php echo $category['packages'][1]; ?></a></li>
                         <li><a href="<?php echo base_url('/category/package/' . $category['links'][2]); ?>"><?php echo $category['packages'][2]; ?></a></li>
