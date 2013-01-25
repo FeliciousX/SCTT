@@ -38,18 +38,18 @@
 |
 */
 
-$route['default_controller'] = "pages/index";
+// $route['default_controller'] = "pages/index";
 
-// For navigation bar
-$route['home'] = $route['default_controller'];
-$route['about'] = "pages/index/about";
-$route['tour_packages'] = "pages/index/category";
-$route['photo_gallery'] = "pages/index/gallery";
-$route['about_sarawak_&_sabah'] = "pages/index/sarawak_sabah_info";
-$route['testimonial'] = "pages/index/testimonial";
-$route['contact'] = "pages/index/contact";
+// // For navigation bar
+// $route['home'] = $route['default_controller'];
+// $route['about'] = "pages/index/about";
+// $route['tour_packages'] = "pages/index/category";
+// $route['photo_gallery'] = "pages/index/gallery";
+// $route['about_sarawak_&_sabah'] = "pages/index/sarawak_sabah_info";
+// $route['testimonial'] = "pages/index/testimonial";
+// $route['contact'] = "pages/index/contact";
 
-$route['(:any)'] = "pages/index/$1";
+// $route['(:any)'] = "pages/index/$1";
 
 $route['404_override'] = '';
 
