@@ -8,6 +8,10 @@ class Category_model extends CI_Model {
 	var $c_name = '';
 	var $c_link_to = '';
 
+    /**
+    * By default, in any initiation of the model. It will just take all the input by using post method
+    * and store it in the variables.
+    */
     function __construct()
     {
         parent::__construct();
@@ -29,8 +33,11 @@ class Category_model extends CI_Model {
     	return $query->result();
     }
 
-    function get_category_by_code()
+    function get_category_by_code($c_prefix = '', $c_code = 0)
     {
+        $c_prefix == '' ? '' : $this->c_prefix = $c_prefix;
+        $c_code == 0 ? 0 : $this->c_code = $c_code;
+
     	$this->db->where('c_prefix', $this->c_prefix);
     	$this->db->where('c_code', $this->c_code);
     	$query = $this->db->get();
@@ -52,8 +59,15 @@ class Category_model extends CI_Model {
     	return $this->db->insert('category', $this);
     }
 
-    function update_category()
+    function update_category($c_prefix = '', $c_code = 0, $description = '', $c_name = '', $c_link_to = '')
     {
+        $c_prefix == '' ? '' : $this->c_prefix = $c_prefix;
+        $c_code == 0 ? 0 : $this->c_code = $c_code;
+        $description == '' ? '' : $this->description = $description;
+        $c_name == '' ? '' : $this->c_name = $c_name;
+        $c_link_to == '' ? '' : $this->c_link_to = $c_link_to;
+
+        $this->db->set('description', $this->description);
         $this->db->set('c_name', $this->c_name);
         $this->db->set('c_link_to', $this->c_link_to);
 
@@ -61,17 +75,28 @@ class Category_model extends CI_Model {
     	$this->db->where('c_code', $this->c_code);
 
         // Generates: UPDATE category
-        // SET c_name = '{$this->c_name}', c_link_to = '{$this->c_link_to}'
+        // SET description = '{$this->description}', c_name = '{$this->c_name}', c_link_to = '{$this->c_link_to}'
         // WHERE c_prefix = '{$this->c_prefix}' AND c_code = '{$this->c_code}'
     	return $this->db->update('category', $this);
     }
 
-    function update_category_by_name()
+    function update_category_by_name($c_prefix = '', $c_code = 0, $description = '', $c_name = '', $c_link_to = '')
     {
+        $c_prefix == '' ? '' : $this->c_prefix = $c_prefix;
+        $c_code == 0 ? 0 : $this->c_code = $c_code;
+        $description == '' ? '' : $this->description = $description;
+        $c_name == '' ? '' : $this->c_name = $c_name;
+        $c_link_to == '' ? '' : $this->c_link_to = $c_link_to;
+
+        $this->db->set('c_prefix', $this->c_prefix);
+        $this->db->set('c_code', $this->c_code);
+        $this->db->set('description', $this->description);
+        $this->db->set('c_link_to', $this->c_link_to);
+
     	$this->db->where('c_name', $this->c_name);
 
         // Generates: UPDATE category
-        // SET c_prefix = '{$this->c_prefix}' , c_code = '{$this->c_code}' , c_link_to = '{$this->c_link_to}'
+        // SET c_prefix = '{$this->c_prefix}' , c_code = '{$this->c_code}' , description = '{$this->description}', c_link_to = '{$this->c_link_to}'
         // WHERE c_name = '{$this->c_name}'
     	return $this->db->update('category', $this);
     }

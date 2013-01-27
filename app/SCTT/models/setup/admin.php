@@ -7,6 +7,7 @@ class Admin extends CI_Model {
     private $col_password = "password";     // VARCHAR   
     private $col_name = "name";             // VARCHAR
     private $col_email = "email";           // VARCHAR
+    private $col_superuser = "superuser";   // INT
 
 	function __construct()
     {
@@ -24,7 +25,8 @@ class Admin extends CI_Model {
             {$this->col_username} VARCHAR(30) PRIMARY KEY,
             {$this->col_password} VARCHAR(255) NOT NULL,
             {$this->col_email} VARCHAR(80) UNIQUE NOT NULL,
-            {$this->col_name} VARCHAR(255) NOT NULL
+            {$this->col_name} VARCHAR(255) NOT NULL,
+            {$this->col_superuser} INT(1) NOT NULL
             )";
 
     	$query = $this->db->query($sql);
