@@ -31,13 +31,29 @@ label {
 div.navbar {
 	margin-bottom: 0;
 }
+/*
+.tab-content {
+	padding: 12px 12px 12px 12px;
+	border: 1px solid;
+}*/
 
 .underline {
 	text-decoration: underline;
 }
 
+.leftalign {
+	float: left;
+}
+
+.centeralign {
+	float: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .rightalign {
-	float:right;
+	float: right;
 }
 
 .margintop {
@@ -80,7 +96,7 @@ div.navbar {
 	background-repeat:repeat-x;
 }
 
-.well {
+.package-well {
 	color: #000;
 	background-image: linear-gradient(bottom, rgb(245,167,98) 25%, rgb(237,194,128) 59%);
 	background-image: -o-linear-gradient(bottom, rgb(245,167,98) 25%, rgb(237,194,128) 59%);
@@ -95,6 +111,11 @@ div.navbar {
 		color-stop(0.25, rgb(245,167,98)),
 		color-stop(0.59, rgb(237,194,128))
 	);
+}
+
+.about-well {
+	color: #FFF;
+	background-color: transparent;
 }
 
 .btnmore {

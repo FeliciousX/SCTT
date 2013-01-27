@@ -32,7 +32,7 @@
                     </ul>
                 </div>
                 <div class="span8">
-                  <form class="formarea form-horizontal" action="submit_booking.php">
+                  <form class="formarea form-horizontal" id="booking_form" name="booking_form" action="submit_booking.php">
                      <fieldset>
                            <h2><legend>Booking Page</legend></h2>
                         <div class="control-group">
@@ -40,52 +40,52 @@
                         </div>
                            <div class="control-group">
                               <label class="control-label" for="category">Category</label> 
-                              <div class="controls"><input type="text" disabled="disabled" value="<?php echo $package['category']; ?>" id="category"/></div>
+                              <div class="controls"><input type="text" disabled="disabled" value="<?php echo $package['category']; ?>" id="category" name="category" /></div>
                            </div>
                            <div class="control-group">
                               <label class="control-label" for="code">Package Code</label> 
-                              <div class="controls"><input type="text" disabled="disabled" value="<?php echo $package['code']; ?>" id="code"/></div>
+                              <div class="controls"><input type="text" disabled="disabled" value="<?php echo $package['code']; ?>" id="code" name="code" /></div>
                            </div>
                            <div class="control-group">
                               <label class="control-label" for="duration">Duration</label>
-                              <div class="controls"><input type="text" disabled="disabled" value="<?php echo $package['duration']; ?>" id="duration"/></div>
+                              <div class="controls"><input type="text" disabled="disabled" value="<?php echo $package['duration']; ?>" id="duration" name="duration" /></div>
                            </div>
                         <hr />
                         <div class="control-group">
                            <label class="control-label" for="f_name">Name</label>
                            <div class="controls">
-                              <input type="text" autofocus placeholder="First Name" id="f_name" />
-                              <input type="text" class="input-medium" placeholder="Last Name" id="l_name" />
+                              <input type="text" autofocus placeholder="First Name" id="f_name" name="f_name" />
+                              <input type="text" class="input-medium" placeholder="Last Name" id="l_name" name="l_name" />
                            </div>
                         </div>
                         <div class="control-group">
                            <label class="control-label" for="address">Address</label>
                            <div class="controls">
-                              <textarea rows="3" placeholder="Address" id="address"></textarea>
+                              <textarea rows="3" placeholder="Address" id="address" name="address"></textarea>
                            </div>
                         </div>
                         <div class="control-group">
                            <label class="control-label" for="phone_num">Contact Number</label>
                            <div class="controls">
-                              <input type="tel" class="input-large" placeholder="Contact Number" id="phone_num" />
+                              <input type="tel" class="input-large" placeholder="Contact Number" id="phone_num" name="phone_num" />
                            </div>
                         </div>
                         <div class="control-group">
                            <label class="control-label" for="email">Email</label>
                            <div class="controls">
-                              <input type="text" placeholder="Email" id="email" />
+                              <input type="text" placeholder="Email" id="email" name="email" />
                            </div>
                         </div>
                         <div class="control-group">
                            <label class="control-label" for="date">Date</label>
                            <div class="controls">
-                              <input type="text" placeholder="Intended Date of Tour" id="subject" />
+                              <input type="text" placeholder="Intended Date of Tour" id="subject" name="subject" />
                            </div>
                         </div>
                         <div class="control-group">
                            <label class="control-label" for="message">Message</label>
                            <div class="controls">
-                              <textarea rows="4" placeholder="Is there anything you would like to let us know or ask about?" id="message"></textarea>
+                              <textarea rows="4" placeholder="Is there anything you would like to let us know or ask about?" id="message" name="message" ></textarea>
                            </div>
                         </div>
                         <div class="control-group">

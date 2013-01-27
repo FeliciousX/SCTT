@@ -1,6 +1,6 @@
 <!-- Carousel
     ================================================== -->
-    <div id="myCarousel" class="carousel slide container">
+    <div id="myCarousel" class="carousel slide">
       <div class="carousel-inner">
         <div class="item active">
           <img src="<?php echo base_url('img/category/1.jpg'); ?>" alt="">
