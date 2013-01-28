@@ -12,8 +12,7 @@
 					<li><a href="#tabs1-pane3" data-toggle="tab">Vision</a></li>
 				</ul>
 				<div class="tab-content well about-well">
-					<div class="tab-pane active" id="tabs1-pane1">
-						<div class="row">
+					<div class="row">
 							<div class="span3">
 								<img src="<?php echo base_url('img/about/aboutus-pic1.jpg') ?>" class="img-rounded" />
 							</div>
@@ -25,14 +24,15 @@
 							</div>
 						</div>
 						<hr />
-						<p>Straits Central Travel &amp; Tour Agencies is registered with Malaysian Registrar of Companies under license No. 99030-A and Ministry of Tourism Malaysia under license No. KKKK 1162. Located in our own two units of 3-storey shop-lots, we have been in the business for 41 years escalating from a humble beginning on September 21, 1965 (International Peace Day) to being a full-fledged travel agent today. We deal with air-ticketing, inbound & outbound tours and tourism training and are an Aussie Specialist. Our core inbound tour business is operating tours in Borneo's eco-system, one of the world's oldest rainforest emphasizing on flora and fauna species as well as indigenous communities. We stress on environmentally responsible travel and visitation to relatively undisturbed natural areas to enjoy and appreciate nature amidst cultural features while at the same time promotes conservation of these earthly assets. How we do it - we ensure low visitor impact for high-end adventure tours by segregating bigger groups into smaller ones and diversify their tracks in vulnerable areas. Essentially, we also provide employment for local communities we visit so as to enable them to benefit from the industry's socio-economic norms by employing them as trekkers, porters and cooks for your excursions. Our corner stone is ecotourism training programs which we run alongside our tours to ensure compatibility complemented with strategize marketing plans.</p>
+					<div class="tab-pane active" id="tabs1-pane1">
+						<p>Straits Central Travel &amp; Tour Agencies is registered with Malaysian Registrar of Companies under license No. 99030-A and Ministry of Tourism Malaysia under license No. KKKK 1162. Located in our own two units of 3-storey shop-lots, we have been in the business for <?php echo date("Y") - 1965; ?> years escalating from a humble beginning on September 21, 1965 (International Peace Day) to being a full-fledged travel agent today. We deal with air-ticketing, inbound & outbound tours and tourism training and are an Aussie Specialist. Our core inbound tour business is operating tours in Borneo's eco-system, one of the world's oldest rainforest emphasizing on flora and fauna species as well as indigenous communities. We stress on environmentally responsible travel and visitation to relatively undisturbed natural areas to enjoy and appreciate nature amidst cultural features while at the same time promotes conservation of these earthly assets. How we do it - we ensure low visitor impact for high-end adventure tours by segregating bigger groups into smaller ones and diversify their tracks in vulnerable areas. Essentially, we also provide employment for local communities we visit so as to enable them to benefit from the industry's socio-economic norms by employing them as trekkers, porters and cooks for your excursions. Our corner stone is ecotourism training programs which we run alongside our tours to ensure compatibility complemented with strategize marketing plans.</p>
 					</div>
 					<div class="tab-pane" id="tabs1-pane2">
-						
+						<h3>Mission</h3>
 						<p>To consistently identify market needs, create innovative products with due consideration of the natural environment and deliver them with high quality services with optimum involvement of local communities in order to stay ahead of the pack so as to be recognized as a trusted, reliable and efficient market leader globally.</p>
 					</div>
 					<div class="tab-pane" id="tabs1-pane3">
-						
+						<h3>Vision</h3>
 						<ul>
 							<li>To be creative and innovative in designing new tourism products</li>
 							<li>To achieve and maintain high standard of quality services</li>

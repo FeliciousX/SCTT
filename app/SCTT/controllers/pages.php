@@ -16,9 +16,9 @@ class Pages extends CI_Controller {
 					'Home',
 					'Tour Packages',
 					'Photo Gallery',
-					'Sarawak &amp; Sabah',
+					'About Sarawak &amp; Sabah',
 					'Testimonial',
-					'Contact');
+					'Contact Us');
 	}
 
 
