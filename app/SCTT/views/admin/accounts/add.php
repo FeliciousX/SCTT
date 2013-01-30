@@ -3,7 +3,7 @@
 	<div class="span12">
 		<div class="row">
 		<div class="span3">
-			<?php echo ul($sidebar, $attributes); ?>
+			<?php echo ul($sidebar, $sidebar_attributes); ?>
 		</div> <!-- end of sidebar -->
 	<div class="span9">
 	<?php echo form_fieldset('Add Admin'); ?>
@@ -13,7 +13,7 @@
 		<?php if ($form['success'] && $query): ?>
 	<div class="row">
 		<div class="alert alert-success span5">
-			<button type="button" class="close" data-dismiss="alert" onclick="clearForm(account_form)">&times;</button>
+			<button type="button" class="close" data-dismiss="alert" onclick="clearForm(add_admin)">&times;</button>
 			Admin with username <?php echo set_value('username'); ?> successfully created.
 		</div>
 	</div>

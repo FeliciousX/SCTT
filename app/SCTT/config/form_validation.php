@@ -1,6 +1,17 @@
 <?php
 
 $config = array(
+   'accounts/login' => array(
+                     array(
+                        'field' => 'username',
+                        'label' => 'Username',
+                        'rules' => 'trim|required|xss_clean'
+                        ),
+                     array('field' => 'password',
+                        'label' => 'Password',
+                        'rules' => 'trim'
+                        )
+                  ),
    'accounts/add' => array(
                      array(
                         'field' => 'username',
@@ -28,18 +39,26 @@ $config = array(
                         'rules' => 'trim|required|valid_email|is_unique[admin.email]'
                      )
                   ),
+   'accounts/edit' => array(
+                     array(
+                        'field' => 'password',
+                        'label' => 'Password',
+                        'rules' => 'trim|min_length[5]'
+                        ),
+                     array(
+                        'field' => 'email',
+                        'label' => 'Email',
+                        'rules' => 'trim|valid_email|is_unique[admin.email]'
+                     )
+                  ),
    'accounts/delete' => array(
                         array(
                            'field' => 'username',
                            'label' => 'Username',
                            'rules' => 'trim|required|xss_clean|is_not_unique[admin.username]'),
                         array(
-                           'field' => 'username_su',
-                           'label' => 'Admin Username',
-                           'rules' => 'trim|required|xss_clean'),
-                        array(
-                           'field' => 'password_su',
-                           'label' => 'Admin Password',
+                           'field' => 'password',
+                           'label' => 'Password',
                            'rules' => 'trim|required'
                            )
                   )
