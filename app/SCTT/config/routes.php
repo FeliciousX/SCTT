@@ -42,7 +42,8 @@ $route['default_controller'] = "pages/index";
 
 // For admin pages
 $route['admin'] = "admin/login";
-$route['admin/(:any)'] = "admin/$2";
+$route['admin/(:any)'] = "admin/$1";
+$route['admin/(:any)/(:any)'] = "admin/$1/$2";
 
 // For navigation bar
 $route['home'] = $route['default_controller'];

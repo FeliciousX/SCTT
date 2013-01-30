@@ -1,4 +1,20 @@
-SCA
-travel
-9916
-*
+Straits Central Travel and Tour Agency
+======================================
+
+Views
+-----
+* Navbar
+* Banner
+	- Fullscreen or container?
+	- Commercials or just pictures?
+* Breadcrumbs
+* Fluid
+
+Admin Functions
+---------------
+* Login session
+* Account Management
+	- Create Admin
+	- Delete Admin
+	- Edit Admin
+	- Rank level
