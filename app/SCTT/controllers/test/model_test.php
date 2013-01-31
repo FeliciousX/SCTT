@@ -164,6 +164,16 @@ class Model_test extends Toast
 		$this->_assert_true($var);
 	}
 
+	function test_populate_admin($username = 'admin')
+	{
+		$this->load->model('admin_model');
+
+		$var = $this->admin_model->delete_admin($username);
+		$this->_assert_true($var);
+
+		$var = $this->admin_model->insert_admin($username, '12345', 'Admin', 'admin@borneo4u.com', 2);
+		$this->_assert_true($var);
+	}
 }
 
 // End of file example_test.php */

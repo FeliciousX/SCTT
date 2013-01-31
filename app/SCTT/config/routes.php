@@ -54,6 +54,11 @@ $route['about_sarawak_&_sabah'] = "pages/index/about_swk_sbh";
 $route['testimonial'] = "pages/index/testimonial";
 $route['contact'] = "pages/index/contact_us";
 
+$route['test'] = "test";
+$route['test/(:any)'] = "test/$1";
+$route['test/(:any)/(:any)'] = "test/$1/$2";
+$route['test/(:any)/(:any)/(:any)'] = "test/$1/$2/$3";
+
 $route['(:any)'] = "pages/index/$1";
 
 $route['404_override'] = '';

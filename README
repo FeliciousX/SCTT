@@ -5,16 +5,31 @@ Views
 -----
 * Navbar
 * Banner
-	- Fullscreen or container?
-	- Commercials or just pictures?
 * Breadcrumbs
 * Fluid
 
 Admin Functions
 ---------------
-* Login session
+* Login / Logout session
 * Account Management
 	- Create Admin
 	- Delete Admin
 	- Edit Admin
 	- Rank level
+* Home
+	- See pending bookings.
+	- Responds to the emails
+* Categories
+	- Edit Categories
+	- Add New Category
+	- Delete Categories
+	- Set pictures to show on category page
+* Packages
+	- Edit Packages
+	- Add New Packages
+	- Delete Packages
+	- Set pictures to show on package page
+* Photo Gallery
+	- Manage pictures
+	- Upload pictures
+	- Delete Pictures
