@@ -1,5 +1,10 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+* Represents the package table
+*
+* @author FeliciousX   
+*/
 class Package_model extends CI_Model {
 
     var $p_code = 0;

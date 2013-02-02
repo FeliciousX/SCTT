@@ -1,5 +1,10 @@
-<?php
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+* Represents the category table
+*
+* @author FeliciousX
+*/
 class Category_model extends CI_Model {
 
 	var $c_prefix = '';

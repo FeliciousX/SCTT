@@ -9,22 +9,20 @@
 	<?php echo form_fieldset('Add Admin'); ?>
 	<?php echo form_open('admin/accounts/add', $form['head']); ?>
 	
-	<?php if (isset($_POST['submit'])): ?>
-		<?php if ($form['success'] && $query): ?>
+	<?php if ($this->session->flashdata('success')): ?>
 	<div class="row">
 		<div class="alert alert-success span5">
 			<button type="button" class="close" data-dismiss="alert" onclick="clearForm(add_admin)">&times;</button>
-			Admin with username <?php echo set_value('username'); ?> successfully created.
+			<?php echo $this->session->flashdata('success'); ?>
 		</div>
 	</div>
-		<?php else: ?>
+	<?php elseif ($this->session->flashdata('error')): ?>
 	<div class="row">
 		<div class="alert alert-error span5">
 			<button type="button" class="close" data-dismiss="alert">&times;</button>
-			Creating admin failed. Please try again.
+			<?php echo $this->session->flashdata('error'); ?>
 		</div>
 	</div>
-		<?php endif; ?>
 	<?php endif; ?>
 	<div class="control-group username-group">
 		<?php echo form_label('Username:', 'username', array('class' => 'control-label')); ?>

@@ -1,6 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Login extends CI_Controller {
+/**
+* Login controller handles the login page.
+*
+* @author FeliciousX
+*/
+class Login extends MY_Controller {
 
 	public function __construct()
 	{
@@ -8,11 +13,11 @@ class Login extends CI_Controller {
 
 		$this->load->helper(array('form'));
 
-		if ($this->session->userdata('logged_in')) {
+		if ($this->session->userdata('logged_in'))
+		{
 			redirect('/admin/home', 'refresh');
 		}
 	}
-
 
 	/**
 	 * Index Page for this controller. Shows error 404 if page not found.
@@ -41,7 +46,8 @@ class Login extends CI_Controller {
 
 		$result = $this->admin_model->get_admin();
 
-		if ($result) {
+		if ($result)
+		{
 
 			$array = array(
 				'username' => $result->username ,
@@ -50,12 +56,12 @@ class Login extends CI_Controller {
 				'logged_in' => TRUE
 			);
 			
-			$this->session->set_userdata( $array );
+			$this->session->set_userdata($array);
 			
 			redirect('/admin/home/', 'refresh');
 		}
-		else {
-
+		else
+		{
 			$this->session->set_flashdata('error', 'Incorrect username or password !');
 			redirect('/admin/login/', 'refresh');
 		}

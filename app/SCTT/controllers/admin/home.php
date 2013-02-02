@@ -1,12 +1,16 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Home extends MY_Controller {
+/**
+* The home page shows all the bookings that is still pending
+*
+* @author FeliciousX
+*/
+class Home extends Admin_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
 	}
-
 
 	/**
 	 * Index Page for this controller. Shows error 404 if page not found.

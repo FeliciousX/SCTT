@@ -1,13 +1,21 @@
-<?php 
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+* Represents the admin table.
+*
+* @author FeliciousX
+*/
 class Admin_model extends CI_Model {
 
     var $username = '';
     var $password = '';
     var $name = '';
     var $email = '';
-    var $superuser = 0;
+    var $superuser = 0; // 0 = Normal Admin, 1 = Super Admin, 2 = Highest Authority
 
+    /**
+    * The constructor automatically populate the variables from the post input.
+    */
     function __construct()
     {
         parent::__construct();
@@ -19,6 +27,12 @@ class Admin_model extends CI_Model {
         $this->superuser = $this->input->post('superuser');
     }
 
+    /**
+    * Query for all admin accounts
+    *
+    * @access   public
+    * @return   object or FALSE
+    */
     function get_all_admin()
     {
         $this->db->from('admin');
@@ -28,14 +42,24 @@ class Admin_model extends CI_Model {
         // Generates: SELECT username, name, email FROM (`admin`) ORDER BY name ASC
     	$query = $this->db->get();
 
-    	if ($query->num_rows() > 0) {
+    	if ($query->num_rows() > 0)
+        {
             return $query->result();
         }
-        else {
-            return false;
+        else
+        {
+            return FALSE;
         }
     }
 
+    /**
+    * Query for specific admin with the matching username and password
+    *
+    * @access   public
+    * @param    $username string
+    * @param    $password string
+    * @return   object or FALSE
+    */
     function get_admin($username = '', $password = '')
     {
         $username == '' ? $username = $this->username : '';
@@ -50,14 +74,23 @@ class Admin_model extends CI_Model {
         //               AND `password` = {$password}
         $query = $this->db->get();
 
-        if ($query->num_rows() > 0) {
+        if ($query->num_rows() > 0)
+        {
             return $query->row();
         }
-        else {
-            return false;
+        else
+        {
+            return FALSE;
         }
     }
 
+    /**
+    * Query for an admin with the matching username
+    *
+    * @access   public
+    * @param    string
+    * @return   object or FALSE
+    */
     function get_admin_by_username($username = '')
     {
         $username == '' ? $username = $this->username : '';
@@ -69,14 +102,23 @@ class Admin_model extends CI_Model {
         // Generates: SELECT * FROM (`admin`) WHERE `username` = {$username}
         $query = $this->db->get();
 
-        if ($query->num_rows() > 0) {
+        if ($query->num_rows() > 0)
+        {
             return $query->row();
         }
-        else {
-            return false;
+        else
+        {
+            return FALSE;
         }
     }
 
+    /**
+    * Query for an admin with the matching email
+    *
+    * @access   public
+    * @param    string
+    * @return   object or FALSE
+    */
     function get_admin_by_email($email = '')
     {
         $email == '' ? $email = $this->email : '';
@@ -88,20 +130,29 @@ class Admin_model extends CI_Model {
         // Generates: SELECT * FROM (`admin`) WHERE `email` = {$email}
         $query = $this->db->get();
 
-        if ($query->num_rows() > 0) {
+        if ($query->num_rows() > 0)
+        {
             return $query->row();
         }
-        else {
-            return false;
+        else
+        {
+            return FALSE;
         }
     }
 
+    /**
+    * Query for all admin that has username that contains $username
+    *
+    * @access   public
+    * @param    string
+    * @return   array of object
+    */
     function get_all_admin_like_username($username = '')
     {
         $username == '' ? $username = $this->username : '';
 
         $this->db->from('admin');
-        $this->db->select('username, name, email');
+        $this->db->select('username, name, email, superuser');
         $this->db->order_by('username', 'asc');
 
         $this->db->like('username', $username, 'both');
@@ -109,20 +160,29 @@ class Admin_model extends CI_Model {
         // Generates: SELECT username, name, email FROM (`admin`) WHERE username LIKE '%{$username}%'
         $query = $this->db->get();
 
-        if ($query->num_rows() > 0) {
+        if ($query->num_rows() > 0)
+        {
             return $query->result();
         }
-        else {
-            return false;
+        else
+        {
+            return FALSE;
         }
     }
 
+    /**
+    * Query for all admin that has email that contains $email
+    *
+    * @access   public
+    * @param    string
+    * @return   array of object
+    */
     function get_all_admin_like_email($email = '')
     {
         $email == '' ? $email = $this->email : '';
 
         $this->db->from('admin');
-        $this->db->select('username, name, email');
+        $this->db->select('username, name, email, superuser');
         $this->db->order_by('email', 'asc');
 
         $this->db->like('email', $email, 'both');
@@ -130,20 +190,29 @@ class Admin_model extends CI_Model {
         // Generates: SELECT * FROM (`admin`) WHERE email LIKE '%{$email}%'
         $query = $this->db->get();
 
-        if ($query->num_rows() > 0) {
+        if ($query->num_rows() > 0)
+        {
             return $query->result();
         }
-        else {
-            return false;
+        else
+        {
+            return FALSE;
         }
     }
 
+    /**
+    * Query for all admin that has name that contains $name
+    *
+    * @access   public
+    * @param    string
+    * @return   array of object
+    */
     function get_all_admin_like_name($name = '')
     {
         $name == '' ? $name = $this->name : '' ;
 
         $this->db->from('admin');
-        $this->db->select('username, name, email');
+        $this->db->select('username, name, email, superuser');
         $this->db->order_by('name', 'asc');
 
         $this->db->like('name', $name, 'both');
@@ -151,14 +220,27 @@ class Admin_model extends CI_Model {
         // Generates: SELECT * FROM (`admin`) WHERE name LIKE '%{$name}%'
         $query = $this->db->get();
 
-        if ($query->num_rows() > 0) {
+        if ($query->num_rows() > 0)
+        {
             return $query->result();
         }
-        else {
-            return false;
+        else
+        {
+            return FALSE;
         }
     }
 
+    /**
+    * Insert a new admin to the database
+    *
+    * @access   public
+    * @param    $username string
+    * @param    $password string
+    * @param    $name string
+    * @param    $email string
+    * @param    $superuser integer
+    * @return   boolean
+    */
     function insert_admin($username = '', $password = '', $name = '', $email = '', $superuser = 0)
     {
         $username != '' ? $this->username = $username : '';
@@ -175,35 +257,14 @@ class Admin_model extends CI_Model {
         return $query;
     }
 
-    function update_admin($username = '', $password = '', $name = '', $email = '', $superuser = 0)
-    {
-        $username == '' ? $username = $this->username : '';
-        $password == '' ? $password = $this->password : '';
-        $name == '' ? $name = $this->name : '';
-        $email == '' ? $email = $this->email : '';
-        $superuser == 0 ? $superuser = $this->superuser : 0 ;
-
-        $query = false;
-
-        if ( $password ) {
-            $query = $this->update_admin_password($username, $password);
-        }
-
-        if ( $name ) {
-            $query = $this->update_admin_name($username, $name);
-        }
-
-        if ( $email ) {
-            $query = $this->update_admin_email($username, $email);
-        }
-
-        if ( $superuser > 0 ) {
-            $query = $this->update_admin_superuser($username, $superuser);
-        }
-
-        return $query;
-    }
-
+    /**
+    * Update an admin's password with matching username
+    *
+    * @access   public
+    * @param    $username string
+    * @param    $password string
+    * @return   boolean
+    */
     function update_admin_password($username = '', $password = '')
     {
         $username == '' ? $username = $this->username : '';
@@ -221,6 +282,14 @@ class Admin_model extends CI_Model {
         return $this->db->update();
     }
 
+    /**
+    * Update an admin's name with matching username
+    *
+    * @access   public
+    * @param    $username string
+    * @param    $name string
+    * @return   boolean
+    */
     function update_admin_name($username = '', $name = '')
     {
         $username == '' ? $username = $this->username : '';
@@ -238,6 +307,14 @@ class Admin_model extends CI_Model {
         return $this->db->update();
     }
 
+    /**
+    * Update an admin's email with matching username
+    *
+    * @access   public
+    * @param    $username string
+    * @param    $email string
+    * @return   boolean
+    */
     function update_admin_email($username = '', $email = '')
     {
         $username == '' ? $username = $this->username : '';
@@ -255,6 +332,14 @@ class Admin_model extends CI_Model {
         return $this->db->update();
     }
 
+    /**
+    * Update an admin's rank with matching username
+    *
+    * @access   public
+    * @param    $username string
+    * @param    $superuser integer
+    * @return   boolean
+    */
     function update_admin_superuser($username = '', $superuser = 0)
     {
         $username == '' ? $username = $this->username : '';
@@ -272,6 +357,13 @@ class Admin_model extends CI_Model {
         return $this->db->update();
     }
 
+    /**
+    * Deletes an admin from the database with the matching username
+    *
+    * @access   public
+    * @param    string
+    * @return   boolean
+    */
     function delete_admin($username = '')
     {
         $username == '' ? $username = $this->username : '';

@@ -1,5 +1,10 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+* Represents the booking model
+*
+* @author FeliciousX
+*/
 class Booking_model extends CI_Model {
 
     var $p_code = 0;
@@ -8,7 +13,7 @@ class Booking_model extends CI_Model {
 	var $email = '';
 	var $date_booked = '';
     var $status = '';
-    var $date_start = ''; 
+    var $date_start = '';
     var $date_end = '';
 
     function __construct()

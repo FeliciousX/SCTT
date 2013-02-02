@@ -1,5 +1,10 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+* Represents the client table
+*
+* @author FeliciousX
+*/
 class Client_model extends CI_Model {
 
     var $first_name = '';

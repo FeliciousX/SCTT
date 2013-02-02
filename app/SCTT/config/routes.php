@@ -38,28 +38,9 @@
 |
 */
 
-$route['default_controller'] = "pages/index";
+$route['default_controller'] = "home";
 
-// For admin pages
 $route['admin'] = "admin/login";
-$route['admin/(:any)'] = "admin/$1";
-$route['admin/(:any)/(:any)'] = "admin/$1/$2";
-
-// For navigation bar
-$route['home'] = $route['default_controller'];
-$route['about'] = "pages/index/about";
-$route['tour_packages'] = "pages/index/category";
-$route['photo_gallery'] = "pages/index/gallery";
-$route['about_sarawak_&_sabah'] = "pages/index/about_swk_sbh";
-$route['testimonial'] = "pages/index/testimonial";
-$route['contact'] = "pages/index/contact_us";
-
-$route['test'] = "test";
-$route['test/(:any)'] = "test/$1";
-$route['test/(:any)/(:any)'] = "test/$1/$2";
-$route['test/(:any)/(:any)/(:any)'] = "test/$1/$2/$3";
-
-$route['(:any)'] = "pages/index/$1";
 
 $route['404_override'] = '';
 
