@@ -28,6 +28,7 @@ class Home extends Public_Controller {
 	}
 
 
+
 }
 
 /* End of file home.php */
