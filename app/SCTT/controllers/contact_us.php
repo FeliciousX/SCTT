@@ -66,8 +66,7 @@ class Contact_us extends Public_Controller {
 	{
 		$this->data['form']['head'] = array(
 			'class' => 'formarea',
-			'id' => 'enquiry_form',
-			'onsubmit' => 'return validateAddAdminForm()'
+			'id' => 'enquiry_form'
 			);
 
 		$this->data['form']['f_name'] = array(

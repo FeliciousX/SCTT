@@ -224,7 +224,7 @@ p.tilefont {
 	-o-transition: all 0.2s;
 }
 
-p.tilefont:hover {
+.tile:hover > p.tilefont {
 	background-color: rgba(0, 0, 0, 0.4);
 }
 
