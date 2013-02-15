@@ -54,8 +54,6 @@ class Category_model extends CI_Model {
 
     function insert_category($c_prefix = '', $c_code = 0, $c_description = '', $c_name = '', $c_link_to = '')
     {
-        $this->db->from('category');
-
         $c_prefix == '' ? '' : $this->c_prefix = $c_prefix;
         $c_code == 0 ? 0 : $this->c_code = $c_code;
         $c_description == '' ? '' : $this->c_description = $c_description;
@@ -69,8 +67,6 @@ class Category_model extends CI_Model {
 
     function update_category($c_prefix = '', $c_code = 0, $c_description = '', $c_name = '', $c_link_to = '')
     {
-        $this->db->from('category');
-
         $c_prefix == '' ? '' : $this->c_prefix = $c_prefix;
         $c_code == 0 ? 0 : $this->c_code = $c_code;
         $c_description == '' ? '' : $this->c_description = $c_description;
@@ -92,8 +88,6 @@ class Category_model extends CI_Model {
 
     function update_category_by_name($c_prefix = '', $c_code = 0, $c_description = '', $c_name = '', $c_link_to = '')
     {
-        $this->db->from('category');
-
         $c_prefix == '' ? '' : $this->c_prefix = $c_prefix;
         $c_code == 0 ? 0 : $this->c_code = $c_code;
         $c_description == '' ? '' : $this->c_description = $c_description;
@@ -115,8 +109,6 @@ class Category_model extends CI_Model {
 
     function update_category_by_link()
     {
-        $this->db->from('category');
-
     	$this->db->where('c_link_to', $this->c_link_to);
 
         // Generates: UPDATE category
@@ -127,8 +119,6 @@ class Category_model extends CI_Model {
 
     function delete_category()
     {
-        $this->db->from('category');
-
     	$this->db->where('c_prefix', $this->c_prefix);
     	$this->db->where('c_code', $this->c_code);
     	$this->db->where('c_name', $this->c_name);
@@ -142,8 +132,6 @@ class Category_model extends CI_Model {
 
     function delete_category_by_code()
     {
-        $this->db->from('category');
-
     	$this->db->where('c_prefix', $this->c_prefix);
     	$this->db->where('c_code', $this->c_code);
 
@@ -154,8 +142,6 @@ class Category_model extends CI_Model {
 
     function delete_category_by_name()
     {
-        $this->db->from('category');
-
     	$this->db->where('c_name', $this->c_name);
 
         // Generates: DELETE FROM category
@@ -165,8 +151,6 @@ class Category_model extends CI_Model {
 
     function delete_category_by_link()
     {
-        $this->db->from('category');
-
     	$this->db->where('c_link_to', $this->c_link_to);
 
         // Generates: DELETE FROM category

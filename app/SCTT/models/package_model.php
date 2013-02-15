@@ -70,8 +70,6 @@ class Package_model extends CI_Model {
 
     function insert_package($p_code = '', $c_prefix = '', $c_code = '', $p_name = '', $price = '', $description = '' ,$p_link_to ='')
     {
-        $this->db->from('package');
-
         $p_code == 0 ? 0 : $this->p_code = $p_code;
         $c_prefix == '' ? '' : $this->c_prefix = $c_prefix;
         $c_code == 0 ? 0 : $this->c_code = $c_code;
@@ -87,8 +85,6 @@ class Package_model extends CI_Model {
 
     function update_package_by_code()
     {
-        $this->db->from('package');
-
         $this->db->set('p_name', $this->p_name);
         $this->db->set('p_link_to', $this->p_link_to);
 
@@ -99,7 +95,7 @@ class Package_model extends CI_Model {
         // Generates: UPDATE package
         // SET p_name = '{$this->p_name}', p_link_to = '{$this->p_link_to}'
         // WHERE p_code = '{$this->p_code}' AND c_prefix = '{$this->c_prefix}' AND c_code = '{$this->c_code}'
-    	return $this->db->update();
+    	return $this->db->update('package', $this);
     }
 
     function update_package_by_name()
@@ -122,8 +118,6 @@ class Package_model extends CI_Model {
 
     function update_package_by_link()
     {
-        $this->db->from('package');
-
         $this->db->set('p_code', $this->p_code);
         $this->db->set('c_prefix', $this->c_prefix);
         $this->db->set('c_code', $this->c_code);
@@ -135,13 +129,11 @@ class Package_model extends CI_Model {
         // SET p_code = '{$this->p_code}' , c_prefix = '{$this->c_prefix}' ,
         //      c_code = '{$this->c_code}' , p_name = '{$this->p_name}'
         // WHERE p_link_to = '{$this->p_link_to}'
-    	return $this->db->update();
+    	return $this->db->update('package', $this);
     }
 
     function delete_package()
     {
-        $this->db->from('package');
-
         $this->db->where('p_code', $this->p_code);
     	$this->db->where('c_prefix', $this->c_prefix);
     	$this->db->where('c_code', $this->c_code);
@@ -151,42 +143,36 @@ class Package_model extends CI_Model {
         // Generates: DELETE FROM package
         // WHERE p_code = {$this->p_code} AND c_prefix = {$this->c_prefix} AND c_code = {$this->c_code}
         //      AND p_name = {$this->p_name} AND p_link_to = {$this->p_link_to}
-    	return $this->db->delete();
+    	return $this->db->delete('package');
     }
 
     function delete_package_by_code()
     {
-        $this->db->from('package');
-
         $this->db->where('p_code', $this->p_code);
     	$this->db->where('c_prefix', $this->c_prefix);
     	$this->db->where('c_code', $this->c_code);
 
         // Generates: DELETE FROM package
         // WHERE p_code = {$this->p_code} AND c_prefix = {$this->c_prefix} AND c_code = {$this->c_code}
-    	return $this->db->delete();
+    	return $this->db->delete('package');
     }
 
     function delete_package_by_name()
     {
-        $this->db->from('package');
-
     	$this->db->where('p_name', $this->p_name);
 
         // Generates: DELETE FROM package
         // WHERE p_name = {$this->p_name}
-    	return $this->db->delete();
+    	return $this->db->delete('package');
     }
 
     function delete_package_by_link()
     {
-        $this->db->from('package');
-
     	$this->db->where('p_link_to', $this->p_link_to);
 
         // Generates: DELETE FROM package
         // WHERE p_link_to = {$this->p_link_to}
-    	return $this->db->delete();
+    	return $this->db->delete('package');
     }
 }
 
