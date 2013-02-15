@@ -23,7 +23,7 @@
                         <li><a href="<?php echo base_url('/category/package/' . $category['links'][3]); ?>"><?php echo $category['packages'][3]; ?></a></li>
                     </ul>
                 </div>
-                <div class="span8">
+                <!-- <div class="span8">
                     <?php
                     $array_size = sizeof($category['packages']);
                     $count = 0;
@@ -48,7 +48,33 @@
                     <?php    
                         }
                     ?>
-                </div>
+                </div> -->
+               <div class="span8">
+                  <?php
+                  $array_size = sizeof($category['packages']);
+                  $count = 0;
+                  
+                  for ($i = 0; $i < $array_size / 2; $i++) {
+                  ?>
+                  <div class="row">
+                  <?php for ($j = 0; $j < 2; $j++) { ?>
+                     <div class="span4">
+                         <a class="tile" href="<?php echo base_url('/category/package/' . $category['links'][$count]); ?>">
+                             <div class="tile one" style = "background-image: url('<?php echo base_url('img/tiles') . '/' . $category['images'][$count]; ?>');">
+                                 <p class="tilefont"><?php echo $category['packages'][$count]; ?></p>
+                             </div>
+                         </a>
+                     </div>
+                  <?php 
+                     $count++;
+                         } 
+                  ?> 
+                  </div>
+                  <br>
+                  <?php    
+                      }
+                  ?>
+               </div>
             </div>
         </div>
     </div>

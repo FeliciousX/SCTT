@@ -5,7 +5,7 @@ class Category extends CI_Model {
 	private $table_category = "category";
 	private $col_c_prefix = "c_prefix";		  // CHAR
 	private $col_c_code = "c_code";			  // INT
-    private $col_description = "description"; // TEXT
+    private $col_description = "c_description"; // TEXT
 	private $col_c_name = "c_name";			  // VARCHAR
 	private $col_c_link_to = "c_link_to";	  // VARCHAR
 

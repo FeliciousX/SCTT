@@ -5,6 +5,9 @@ class Category extends Public_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('category_model');
+		$this->load->model('package_model');
+		$this->load->helper('array');
 	}
 
 	public function index()
@@ -19,6 +22,9 @@ class Category extends Public_Controller {
 
 		$this->data['page_uri'] = uri_string();
 		$this->data['nav_active'] = explode('/', $this->data['page_uri']);
+
+		
+		$data['query_c'] = $this->category_model->get_all_category();
 
 		$this->load->view('templates/head', $this->data);
 		$this->load->view('templates/navbar', $this->data);
