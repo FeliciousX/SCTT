@@ -68,7 +68,7 @@ class Package_model extends CI_Model {
     	return $query->result();
     }
 
-    function insert_package($p_code = '', $c_prefix = '', $c_code = '', $p_name = '', $price = '', $description = '' ,$p_link_to ='')
+    function insert_package($p_code = '', $c_prefix = '', $c_code = '', $p_name = '', $price = '', $description = '')
     {
         $p_code == 0 ? 0 : $this->p_code = $p_code;
         $c_prefix == '' ? '' : $this->c_prefix = $c_prefix;
@@ -76,7 +76,9 @@ class Package_model extends CI_Model {
         $p_name == '' ? '' : $this->p_name = $p_name;
         $price == 0 ? 0 : $this->price = $price;
         $description == '' ? '' : $this->description = $description;
-        $p_link_to == '' ? '' : $this->p_link_to = $p_link_to;
+        // $p_link_to == '' ? '' : $this->p_link_to = $p_link_to;
+
+        $this->p_link_to = $this->c_prefix . $this->c_code . '-' . $this->p_code;
 
         // Generates: INSERT INTO `package` (p_code, c_prefix, c_code, p_name, price, description, p_link_to)
         // VALUES ({$this->p_code}, {$this->c_prefix}, {$this->c_code}, {$this->p_name}, {this->price}, {this->description}, {$this->p_link_to})

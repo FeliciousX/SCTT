@@ -12,6 +12,7 @@ class Category_model extends CI_Model {
     var $c_description = '';
 	var $c_name = '';
 	var $c_link_to = '';
+    var $featured = 0;
 
     /**
     * By default, in any initiation of the model. It will just take all the input by using post method
@@ -26,12 +27,14 @@ class Category_model extends CI_Model {
         $this->c_description = $this->input->post('c_description');
     	$this->c_name = $this->input->post('c_name');
     	$this->c_link_to = $this->input->post('c_link_to');
+        $this->featured = $this->input->post('featured');
     }
 
     function get_all_category()
     {
         $this->db->from('category');
-        // Generates: SELECT * FROM (`category`)
+        $this->db->order_by('featured', 'asc');
+        // Generates: SELECT * FROM (`category`) ORDERBY featured ASC
     	$query = $this->db->get();
 
     	return $query->result();
@@ -52,30 +55,35 @@ class Category_model extends CI_Model {
     	return $query->result();
     }
 
-    function insert_category($c_prefix = '', $c_code = 0, $c_description = '', $c_name = '', $c_link_to = '')
+    function insert_category($c_prefix = '', $c_code = 0, $c_description = '', $c_name = '', $featured = 0)
     {
         $c_prefix == '' ? '' : $this->c_prefix = $c_prefix;
         $c_code == 0 ? 0 : $this->c_code = $c_code;
         $c_description == '' ? '' : $this->c_description = $c_description;
         $c_name == '' ? '' : $this->c_name = $c_name;
-        $c_link_to == '' ? '' : $this->c_link_to = $c_link_to;
+        // $c_link_to == '' ? '' : $this->c_link_to = $c_link_to;
+        $featured == 0 ? 0 : $this->featured = $featured;
 
-        // Generates: INSERT INTO `category` (c_prefix, c_code, c_name, c_link_to)
-        // VALUES ({$this->c_prefix}, {$this->c_code}, {$this->c_name}, {$this->c_link_to})
+        $this->c_link_to = 'index/' . $this->c_prefix . $this->c_code;
+
+        // Generates: INSERT INTO `category` (c_prefix, c_code, c_description, c_name, c_link_to, featured)
+        // VALUES ({$this->c_prefix}, {$this->c_code}, {$this->c_description}, {$this->c_name}, {$this->c_link_to}, {$this->featured})
     	return $this->db->insert('category', $this);
     }
 
-    function update_category($c_prefix = '', $c_code = 0, $c_description = '', $c_name = '', $c_link_to = '')
+    function update_category($c_prefix = '', $c_code = 0, $c_description = '', $c_name = '', $c_link_to = '', $featured = 0)
     {
         $c_prefix == '' ? '' : $this->c_prefix = $c_prefix;
         $c_code == 0 ? 0 : $this->c_code = $c_code;
         $c_description == '' ? '' : $this->c_description = $c_description;
         $c_name == '' ? '' : $this->c_name = $c_name;
         $c_link_to == '' ? '' : $this->c_link_to = $c_link_to;
+        $featured == 0 ? 0 : $this->featured = $featured;
 
         $this->db->set('c_description', $this->c_description);
         $this->db->set('c_name', $this->c_name);
         $this->db->set('c_link_to', $this->c_link_to);
+        $this->db->set('featured', $this->featured);
 
     	$this->db->where('c_prefix', $this->c_prefix);
     	$this->db->where('c_code', $this->c_code);
@@ -86,18 +94,20 @@ class Category_model extends CI_Model {
     	return $this->db->update('category', $this);
     }
 
-    function update_category_by_name($c_prefix = '', $c_code = 0, $c_description = '', $c_name = '', $c_link_to = '')
+    function update_category_by_name($c_prefix = '', $c_code = 0, $c_description = '', $c_name = '', $c_link_to = '', $featured = 0)
     {
         $c_prefix == '' ? '' : $this->c_prefix = $c_prefix;
         $c_code == 0 ? 0 : $this->c_code = $c_code;
         $c_description == '' ? '' : $this->c_description = $c_description;
         $c_name == '' ? '' : $this->c_name = $c_name;
         $c_link_to == '' ? '' : $this->c_link_to = $c_link_to;
+        $featured == 0 ? 0 : $this->featured = $featured;
 
         $this->db->set('c_prefix', $this->c_prefix);
         $this->db->set('c_code', $this->c_code);
         $this->db->set('c_description', $this->c_description);
         $this->db->set('c_link_to', $this->c_link_to);
+        $this->db->set('featured', $this->featured);
 
     	$this->db->where('c_name', $this->c_name);
 
@@ -115,6 +125,21 @@ class Category_model extends CI_Model {
         // SET c_prefix = '{$this->c_prefix}' , c_code = '{$this->c_code}' , c_name = '{$this->c_name}'
         // WHERE c_link_to = '{$this->c_link_to}'
     	return $this->db->update('category', $this);
+    }
+
+    function update_category_featured($c_prefix = '', $c_code = 0, $featured = 0)
+    {
+        // Updates featured column based on c_prefix and c_code
+
+        $c_prefix == '' ? '' : $this->c_prefix = $c_prefix;
+        $c_code == 0 ? 0 : $this->c_code = $c_code;
+        $featured == 0 ? 0 : $this->featured = $featured;
+
+        $this->db->where('c_code', $this->c_code);
+
+        $this->db->set('featured', $this->featured);
+
+        return $this->db->update('category', $this);
     }
 
     function delete_category()

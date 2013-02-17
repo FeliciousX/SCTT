@@ -8,6 +8,7 @@ class Category extends CI_Model {
     private $col_description = "c_description"; // TEXT
 	private $col_c_name = "c_name";			  // VARCHAR
 	private $col_c_link_to = "c_link_to";	  // VARCHAR
+    private $col_featured = "featured";       // INT
 
 	function __construct()
     {
@@ -27,6 +28,7 @@ class Category extends CI_Model {
     		{$this->col_c_name} VARCHAR(255) NOT NULL,
             {$this->col_description} TEXT ,
     		{$this->col_c_link_to} VARCHAR(255) ,
+            {$this->col_featured} INT(1) ,
     		PRIMARY KEY ({$this->col_c_prefix}, {$this->col_c_code})
             )";
 

@@ -127,42 +127,202 @@ class Model_test extends Toast
 		$truncate = $this->category->clear_table();
 		$this->_assert_true($truncate);
 
-		$var = $this->category_model->insert_category('A', 1, '', 'Day Tours From Kuching', '');
+		// $var = $this->category_model->insert_category('A', 1, '', 'Day Tours From Kuching', 'A1', 0);
+		// $this->_assert_true($var);
+
+		// $var = $this->category_model->insert_category('A', 2, '', 'Overnight Tours From Kuching', 'A2', 0);
+		// $this->_assert_true($var);
+
+		// $var = $this->category_model->insert_category('A', 3, '', 'Overnight Tours From Miri', 'A3', 0);
+		// $this->_assert_true($var);
+
+		// $var = $this->category_model->insert_category('A', 4, '', 'Into The Heart of Borneo From Miri', 'A4', 0);
+		// $this->_assert_true($var);
+
+		// $var = $this->category_model->insert_category('A', 5, '', 'Across Borneo From Kuching', 'A5', 0);
+		// $this->_assert_true($var);
+
+		// $var = $this->category_model->insert_category('A', 6, '', 'Conservation & Special Interest', 'A6', 0);
+		// $this->_assert_true($var);
+
+		// $var = $this->category_model->insert_category('A', 7, '', 'Bird Watching Tour Packages', 'A7', 0);
+		// $this->_assert_true($var);
+
+		// $var = $this->category_model->insert_category('A', 8, '', 'Sabah Highlights', 'A8', 0);
+		// $this->_assert_true($var);
+
+		// $var = $this->category_model->insert_category('A', 9, '', 'Borneo Dive', 'A9', 0);
+		// $this->_assert_true($var);
+
+		// $var = $this->category_model->insert_category('A', 10, '', 'Winter Get-away 2 Borneo', 'A10', 0);
+		// $this->_assert_true($var);
+
+		// $var = $this->category_model->insert_category('A', 11, '', 'Sandakan Day Tour Package', 'A11', 0);
+		// $this->_assert_true($var);
+
+		// $var = $this->category_model->insert_category('A', 12, '', 'Sandakan Overnight Tour Package', 'A12', 0);
+		// $this->_assert_true($var);
+
+		$var = $this->category_model->insert_category('A', 1, '', 'Day Tours From Kuching', 0);
 		$this->_assert_true($var);
 
-		$var = $this->category_model->insert_category('A', 2, '', 'Overnight Tours From Kuching', '');
+		$var = $this->category_model->insert_category('A', 2, '', 'Overnight Tours From Kuching', 0);
 		$this->_assert_true($var);
 
-		$var = $this->category_model->insert_category('A', 3, '', 'Overnight Tours From Miri', '');
+		$var = $this->category_model->insert_category('A', 3, '', 'Overnight Tours From Miri', 0);
 		$this->_assert_true($var);
 
-		$var = $this->category_model->insert_category('A', 4, '', 'Into The Heart of Borneo From Miri', '');
+		$var = $this->category_model->insert_category('A', 4, '', 'Into The Heart of Borneo From Miri', 0);
 		$this->_assert_true($var);
 
-		$var = $this->category_model->insert_category('A', 5, '', 'Across Borneo From Kuching', '');
+		$var = $this->category_model->insert_category('A', 5, '', 'Across Borneo From Kuching', 0);
 		$this->_assert_true($var);
 
-		$var = $this->category_model->insert_category('A', 6, '', 'Conservation & Special Interest', '');
+		$var = $this->category_model->insert_category('A', 6, '', 'Conservation & Special Interest', 0);
 		$this->_assert_true($var);
 
-		$var = $this->category_model->insert_category('A', 7, '', 'Bird Watching Tour Packages', '');
+		$var = $this->category_model->insert_category('A', 7, '', 'Bird Watching Tour Packages', 0);
 		$this->_assert_true($var);
 
-		$var = $this->category_model->insert_category('A', 8, '', 'Sabah Highlights', '');
+		$var = $this->category_model->insert_category('A', 8, '', 'Sabah Highlights', 0);
 		$this->_assert_true($var);
 
-		$var = $this->category_model->insert_category('A', 9, '', 'Borneo Dive', '');
+		$var = $this->category_model->insert_category('A', 9, '', 'Borneo Dive', 0);
 		$this->_assert_true($var);
 
-		$var = $this->category_model->insert_category('A', 10, '', 'Winter Get-away 2 Borneo', '');
+		$var = $this->category_model->insert_category('A', 10, '', 'Winter Get-away 2 Borneo', 0);
 		$this->_assert_true($var);
 
-		$var = $this->category_model->insert_category('A', 11, '', 'Sandakan Day Tour Package', '');
+		$var = $this->category_model->insert_category('A', 11, '', 'Sandakan Day Tour Package', 0);
 		$this->_assert_true($var);
 
-		$var = $this->category_model->insert_category('A', 12, '', 'Sandakan Overnight Tour Package', '');
+		$var = $this->category_model->insert_category('A', 12, '', 'Sandakan Overnight Tour Package', 0);
 		$this->_assert_true($var);
+
+		// $var = $this->category_model->update_category_featured('A', 1, 1);
+		// $this->_assert_true($var);
+
+		// $var = $this->category_model->update_category_featured('A', 2, 2);
+		// $this->_assert_true($var);
+
+		// $var = $this->category_model->update_category_featured('A', 4, 3);
+		// $this->_assert_true($var);
+
+		// $var = $this->category_model->update_category_featured('A', 6, 4);
+		// $this->_assert_true($var);
 	}
+
+	// function test_populate_package()
+	// {
+	// 	$this->load->model('package_model');
+	// 	$this->load->model('setup/package');
+	// 	$this->message = 'Populating Package Table';
+
+	// 	$truncate = $this->package->clear_table();
+	// 	$this->_assert_true($truncate);
+
+	// 	$var = $this->package_model->insert_package('001', 'A', 1, 'Kuching City Tour', 0.00, 'Kuching City, the state capital of Sarawak is absolutely unique with its charm and easy grace. The Sarawak river that runs through the city centre divides the city into Kuching City North and Kuching City South. Kuching city is well preserved with old shopping bazaars, ornate chinese temples, the old stste mosque, colonial administrative buildings and the beautiful Kuching Waterfront. This tour takes you to the city tower for the panoramic view of the city and a visit to the famed Sarawak Museum – the finest Museum in Southeast Asia. Drive past the old state mosque and stop at the beautiful Kuching Waterfront to view the palace of the White Rajah and the magnificent Sarawak State Legislative Building across the river.', 'kch_city_tour');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('002', 'A', 1, 'Sarawak Cultural Village', 0.00, 'Sample description.', '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('003', 'A', 1, 'Bidayuh Longhouse Experience', 0.00, 'Sample description', '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('004', 'A', 1, 'Frogs of Borneo', 0.00, 'Sample Decription', '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('001', 'A', 2, 'Orang Utan Conservation Programme', 0.00, 'Sample description', '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('002', 'A', 2, 'Bako National Park and Wildlife Experience', 0.00, 'Sample description', '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('003', 'A', 2, 'Iban Longhouse Safari', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('004', 'A', 2, 'Longhouse & Batang Ai Resort', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('005', 'A', 2, 'Batang Ai Resort & Iban Longhouse Experience', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('006', 'A', 2, 'Batang Ai Rainforest Explorer', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('007', 'A', 2, 'Sarawak Sea Turtle Conservation Program at Talang-Talang Island');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('001', 'A', 3, 'Mulu National Park & World Heritage Site', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('002', 'A', 3, 'Mulu National Park & Pinnacles', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('003', 'A', 3, 'Borneo Headhunter Trail', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('001', 'A', 4, 'In Search of Borneo Nomads', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('002', 'A', 4, 'Long Banga & Borneo Heartland', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('003', 'A', 4, 'Long Lellang & Borneo Heartland', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('004', 'A', 4, 'Bario Highland Trek in Borneo Heartland', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('001', 'A', 5, 'Borneo Exclusive Package', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('002', 'A', 5, 'Heart of Borneo', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('001', 'A', 6, 'Frog Tours - Kubah National Park', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('002', 'A', 6, 'Turtle Conservation Tours', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('003', 'A', 6, 'Sarawak Sea Turtle Conservation Program And Borneo Experience', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('004', 'A', 6, 'Orang Utan Conservation Programme and The Wild Man of Borneo', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('001', 'A', 7, 'That\'s the Bird Tour of Borneo', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('001', 'A', 8, 'Day Tour - Kinabalu Park & Canopy Walk', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('002', 'A', 8, 'Sandakan Turtle & Sukau Wildlife Expedition', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('001', 'A', 9, 'Borneo Dive & Pom Pom Island', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('001', 'A', 10, 'Winter Get-away 2 Borneo', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('001', 'A', 11, 'Half Day Sandakan City Tour', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('002', 'A', 11, 'Half Day Sepilok Tour', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('003', 'A', 11, 'Full Day Sepilok & City Tour', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('001', 'A', 12, 'Sukau', 0.00, '');
+	// 	$this->_assert_true($var);
+
+	// 	$var = $this->package_model->insert_package('002', 'A', 12, 'Sukau & Ox.Bow Lake', 0.00, '');
+	// 	$this->_assert_true($var);
+	// }
 
 	function test_populate_package()
 	{
@@ -173,106 +333,106 @@ class Model_test extends Toast
 		$truncate = $this->package->clear_table();
 		$this->_assert_true($truncate);
 
-		$var = $this->package_model->insert_package('001', 'A', 1, 'Kuching City Tour', 0.00, 'Kuching City, the state capital of Sarawak is absolutely unique with its charm and easy grace. The Sarawak river that runs through the city centre divides the city into Kuching City North and Kuching City South. Kuching city is well preserved with old shopping bazaars, ornate chinese temples, the old stste mosque, colonial administrative buildings and the beautiful Kuching Waterfront. This tour takes you to the city tower for the panoramic view of the city and a visit to the famed Sarawak Museum – the finest Museum in Southeast Asia. Drive past the old state mosque and stop at the beautiful Kuching Waterfront to view the palace of the White Rajah and the magnificent Sarawak State Legislative Building across the river.', 'kch_city_tour');
+		$var = $this->package_model->insert_package('001', 'A', 1, 'Kuching City Tour', 0.00, 'Kuching City, the state capital of Sarawak is absolutely unique with its charm and easy grace. The Sarawak river that runs through the city centre divides the city into Kuching City North and Kuching City South. Kuching city is well preserved with old shopping bazaars, ornate chinese temples, the old stste mosque, colonial administrative buildings and the beautiful Kuching Waterfront. This tour takes you to the city tower for the panoramic view of the city and a visit to the famed Sarawak Museum – the finest Museum in Southeast Asia. Drive past the old state mosque and stop at the beautiful Kuching Waterfront to view the palace of the White Rajah and the magnificent Sarawak State Legislative Building across the river.');
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('002', 'A', 1, 'Sarawak Cultural Village', 0.00, 'Sample description.', '');
+		$var = $this->package_model->insert_package('002', 'A', 1, 'Sarawak Cultural Village', 0.00, 'Sample description.');
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('003', 'A', 1, 'Bidayuh Longhouse Experience', 0.00, 'Sample description', '');
+		$var = $this->package_model->insert_package('003', 'A', 1, 'Bidayuh Longhouse Experience', 0.00, 'Sample description');
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('004', 'A', 1, 'Frogs of Borneo', 0.00, 'Sample Decription', '');
+		$var = $this->package_model->insert_package('004', 'A', 1, 'Frogs of Borneo', 0.00, 'Sample Decription');
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('001', 'A', 2, 'Orang Utan Conservation Programme', 0.00, 'Sample description', '');
+		$var = $this->package_model->insert_package('001', 'A', 2, 'Orang Utan Conservation Programme', 0.00, 'Sample description');
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('002', 'A', 2, 'Bako National Park and Wildlife Experience', 0.00, 'Sample description', '');
+		$var = $this->package_model->insert_package('002', 'A', 2, 'Bako National Park and Wildlife Experience', 0.00, 'Sample description');
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('003', 'A', 2, 'Iban Longhouse Safari', 0.00, '');
+		$var = $this->package_model->insert_package('003', 'A', 2, 'Iban Longhouse Safari', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('004', 'A', 2, 'Longhouse & Batang Ai Resort', 0.00, '');
+		$var = $this->package_model->insert_package('004', 'A', 2, 'Longhouse & Batang Ai Resort', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('005', 'A', 2, 'Batang Ai Resort & Iban Longhouse Experience', 0.00, '');
+		$var = $this->package_model->insert_package('005', 'A', 2, 'Batang Ai Resort & Iban Longhouse Experience', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('006', 'A', 2, 'Batang Ai Rainforest Explorer', 0.00, '');
+		$var = $this->package_model->insert_package('006', 'A', 2, 'Batang Ai Rainforest Explorer', 0.00);
 		$this->_assert_true($var);
 
 		$var = $this->package_model->insert_package('007', 'A', 2, 'Sarawak Sea Turtle Conservation Program at Talang-Talang Island');
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('001', 'A', 3, 'Mulu National Park & World Heritage Site', 0.00, '');
+		$var = $this->package_model->insert_package('001', 'A', 3, 'Mulu National Park & World Heritage Site', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('002', 'A', 3, 'Mulu National Park & Pinnacles', 0.00, '');
+		$var = $this->package_model->insert_package('002', 'A', 3, 'Mulu National Park & Pinnacles', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('003', 'A', 3, 'Borneo Headhunter Trail', 0.00, '');
+		$var = $this->package_model->insert_package('003', 'A', 3, 'Borneo Headhunter Trail', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('001', 'A', 4, 'In Search of Borneo Nomads', 0.00, '');
+		$var = $this->package_model->insert_package('001', 'A', 4, 'In Search of Borneo Nomads', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('002', 'A', 4, 'Long Banga & Borneo Heartland', 0.00, '');
+		$var = $this->package_model->insert_package('002', 'A', 4, 'Long Banga & Borneo Heartland', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('003', 'A', 4, 'Long Lellang & Borneo Heartland', 0.00, '');
+		$var = $this->package_model->insert_package('003', 'A', 4, 'Long Lellang & Borneo Heartland', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('004', 'A', 4, 'Bario Highland Trek in Borneo Heartland', 0.00, '');
+		$var = $this->package_model->insert_package('004', 'A', 4, 'Bario Highland Trek in Borneo Heartland', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('001', 'A', 5, 'Borneo Exclusive Package', 0.00, '');
+		$var = $this->package_model->insert_package('001', 'A', 5, 'Borneo Exclusive Package', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('002', 'A', 5, 'Heart of Borneo', 0.00, '');
+		$var = $this->package_model->insert_package('002', 'A', 5, 'Heart of Borneo', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('001', 'A', 6, 'Frog Tours - Kubah National Park', 0.00, '');
+		$var = $this->package_model->insert_package('001', 'A', 6, 'Frog Tours - Kubah National Park', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('002', 'A', 6, 'Turtle Conservation Tours', 0.00, '');
+		$var = $this->package_model->insert_package('002', 'A', 6, 'Turtle Conservation Tours', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('003', 'A', 6, 'Sarawak Sea Turtle Conservation Program And Borneo Experience', 0.00, '');
+		$var = $this->package_model->insert_package('003', 'A', 6, 'Sarawak Sea Turtle Conservation Program And Borneo Experience', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('004', 'A', 6, 'Orang Utan Conservation Programme and The Wild Man of Borneo', 0.00, '');
+		$var = $this->package_model->insert_package('004', 'A', 6, 'Orang Utan Conservation Programme and The Wild Man of Borneo', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('001', 'A', 7, 'That\'s the Bird Tour of Borneo', 0.00, '');
+		$var = $this->package_model->insert_package('001', 'A', 7, 'That\'s the Bird Tour of Borneo', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('001', 'A', 8, 'Day Tour - Kinabalu Park & Canopy Walk', 0.00, '');
+		$var = $this->package_model->insert_package('001', 'A', 8, 'Day Tour - Kinabalu Park & Canopy Walk', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('002', 'A', 8, 'Sandakan Turtle & Sukau Wildlife Expedition', 0.00, '');
+		$var = $this->package_model->insert_package('002', 'A', 8, 'Sandakan Turtle & Sukau Wildlife Expedition', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('001', 'A', 9, 'Borneo Dive & Pom Pom Island', 0.00, '');
+		$var = $this->package_model->insert_package('001', 'A', 9, 'Borneo Dive & Pom Pom Island', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('001', 'A', 10, 'Winter Get-away 2 Borneo', 0.00, '');
+		$var = $this->package_model->insert_package('001', 'A', 10, 'Winter Get-away 2 Borneo', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('001', 'A', 11, 'Half Day Sandakan City Tour', 0.00, '');
+		$var = $this->package_model->insert_package('001', 'A', 11, 'Half Day Sandakan City Tour', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('002', 'A', 11, 'Half Day Sepilok Tour', 0.00, '');
+		$var = $this->package_model->insert_package('002', 'A', 11, 'Half Day Sepilok Tour', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('003', 'A', 11, 'Full Day Sepilok & City Tour', 0.00, '');
+		$var = $this->package_model->insert_package('003', 'A', 11, 'Full Day Sepilok & City Tour', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('001', 'A', 12, 'Sukau', 0.00, '');
+		$var = $this->package_model->insert_package('001', 'A', 12, 'Sukau', 0.00);
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('002', 'A', 12, 'Sukau & Ox.Bow Lake', 0.00, '');
+		$var = $this->package_model->insert_package('002', 'A', 12, 'Sukau & Ox.Bow Lake', 0.00);
 		$this->_assert_true($var);
 	}
 
