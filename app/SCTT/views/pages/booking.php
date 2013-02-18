@@ -16,19 +16,35 @@
     <div class="row">
         <div class="span12 startOpacity">
             <ul class="breadcrumb">
-              <li><a href="<?php echo base_url('tour_packages'); ?>">Tour Packages</a> <span class="divider">/</span></li>
-              <li><a href="<?php echo base_url('category'); ?>"><?php echo $category['name']; ?></a> <span class="divider">/</span></li>
-              <li><a href="<?php echo base_url('packages'); ?>"><?php echo $package['name']; ?></a> <span class="divider">/</span></li>
+              <li><a href="<?php echo base_url('category'); ?>">Tour Packages</a> <span class="divider">/</span></li>
+              <li><a href="<?php echo base_url('category' . '/' . $query_c_specific[0]['c_link_to']); ?>"><?php echo $query_c_specific[0]['c_name']; ?></a> <span class="divider">/</span></li>
+              <li><a href="<?php echo base_url('packages' . '/' . $query_p_specific[0]['p_link_to']); ?>"><?php echo $query_p_specific[0]['p_name']; ?></a> <span class="divider">/</span></li>
               <li class="active">Booking</li>
             </ul>
             <div class="row">
                 <div class="span4">
                     <ul class="sidebar nav nav-list">
-                        <li class="nav-header"><?php echo $category['name']; ?></li>
-                        <li><a href="<?php echo base_url('/category/package/' . $category['links'][0]); ?>"><?php echo $category['packages'][0]; ?></a></li>
-                        <li><a href="<?php echo base_url('/category/package/' . $category['links'][1]); ?>"><?php echo $category['packages'][1]; ?></a></li>
-                        <li><a href="<?php echo base_url('/category/package/' . $category['links'][2]); ?>"><?php echo $category['packages'][2]; ?></a></li>
-                        <li><a href="<?php echo base_url('/category/package/' . $category['links'][3]); ?>"><?php echo $category['packages'][3]; ?></a></li>
+                        <li class="nav-header"><?php echo $query_c_specific[0]['c_name']; ?></li>
+                      <?php 
+                        foreach($query_p_by_c as $package)
+                        {
+                      ?>
+                        <li><a href="<?php echo base_url('package/' . $package['p_link_to']); ?>"><?php echo $package['p_name']; ?></a></li>
+                      <?php 
+                        }
+
+                        foreach($query_c as $category) 
+                        {
+                          if($category['c_name'] != $query_c_specific[0]['c_name'])
+                          {
+                      ?>
+                            <hr />
+                            <li class="nav-header"><a href="<?php echo base_url('category/' . $category['c_link_to']) ?>"><?php echo $category['c_name']; ?></a></li>
+                      <?php
+                          }
+                        }
+                      ?>
+                      <br/>
                     </ul>
                 </div>
                 <div class="span8">
@@ -36,19 +52,19 @@
                      <fieldset>
                            <h2><legend>Booking Page</legend></h2>
                         <div class="control-group">
-                           <h1><?php echo $package['name']; ?></h1>
+                           <h1><?php echo $query_p_specific[0]['p_name']; ?></h1>
                         </div>
                            <div class="control-group">
                               <label class="control-label" for="category">Category</label> 
-                              <div class="controls"><input type="text" disabled="disabled" value="<?php echo $package['category']; ?>" id="category" name="category" /></div>
+                              <div class="controls"><input type="text" disabled="disabled" value="<?php echo $query_c_specific[0]['c_name']; ?>" id="category" name="category" /></div>
                            </div>
                            <div class="control-group">
                               <label class="control-label" for="code">Package Code</label> 
-                              <div class="controls"><input type="text" disabled="disabled" value="<?php echo $package['code']; ?>" id="code" name="code" /></div>
+                              <div class="controls"><input type="text" disabled="disabled" value="<?php echo $cp_code; ?>" id="code" name="code" /></div>
                            </div>
                            <div class="control-group">
                               <label class="control-label" for="duration">Duration</label>
-                              <div class="controls"><input type="text" disabled="disabled" value="<?php echo $package['duration']; ?>" id="duration" name="duration" /></div>
+                              <div class="controls"><input type="text" disabled="disabled" value="<?php echo $query_p_specific[0]['duration']; ?>" id="duration" name="duration" /></div>
                            </div>
                         <hr />
                         <div class="control-group">

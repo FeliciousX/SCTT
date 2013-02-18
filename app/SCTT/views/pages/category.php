@@ -22,7 +22,7 @@
                         foreach($query_p_by_c as $package)
                         {
                       ?>
-                        <li><a href="<?php echo base_url('/category/package/' . $package['p_link_to']); ?>"><?php echo $package['p_name']; ?></a></li>
+                        <li><a href="<?php echo base_url('package/' . $package['p_link_to']); ?>"><?php echo $package['p_name']; ?></a></li>
                       <?php 
                         }
 
@@ -55,7 +55,7 @@
                         {
                     ?>
                      <div class="span4">
-                         <a class="tile" href="<?php echo base_url('/category/package/' . $query_p_by_c[$count]['p_link_to']); ?>">
+                         <a class="tile" href="<?php echo base_url('package/' . $query_p_by_c[$count]['p_link_to']); ?>">
                              <div class="tile one" style = "background-image: url('<?php echo base_url('img/tiles') . '/' . $category_o['images'][$count]; ?>');">
                                  <p class="tilefont"><?php echo $query_p_by_c[$count]['p_name']; ?></p>
                              </div>

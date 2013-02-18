@@ -10,6 +10,7 @@ class Package extends CI_Model {
     private $col_price = "price";             // DOUBLE  
     private $col_description = "description"; // TEXT
 	private $col_p_link_to = "p_link_to";	// VARCHAR
+    private $col_duration = "duration";   // VARCHAR
     private $col_photo_link = "photo_link"; // VARCHAR
     private $col_file_list = "file_list";   // TEXT
 
@@ -33,6 +34,7 @@ class Package extends CI_Model {
             {$this->col_price} DOUBLE(7,2) UNSIGNED NOT NULL,
             {$this->col_description} TEXT,
     		{$this->col_p_link_to} VARCHAR(255) NOT NULL,
+            {$this->col_duration} VARCHAR(255),
     		PRIMARY KEY ({$this->col_p_code}, {$this->col_c_prefix}, {$this->col_c_code})
             )";
 

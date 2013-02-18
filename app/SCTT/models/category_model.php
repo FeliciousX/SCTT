@@ -33,8 +33,8 @@ class Category_model extends CI_Model {
     function get_all_category()
     {
         $this->db->from('category');
-        $this->db->order_by('featured', 'asc');
-        // Generates: SELECT * FROM (`category`) ORDERBY featured ASC
+        $this->db->order_by('featured', 'desc');
+        // Generates: SELECT * FROM (`category`) ORDERBY featured DESC
     	$query = $this->db->get();
 
     	return $query->result();

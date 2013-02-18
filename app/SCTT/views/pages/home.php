@@ -48,7 +48,7 @@
       </div>
       <ul class="pager">
          <li class="next">
-            <a class="btnmore" href="<?php echo base_url('/category') . '/' . $category['main_link']; ?>">More &rarr;</a></span>
+            <a class="btnmore" href="<?php echo base_url('category') . '/' . $category['main_link']; ?>">More &rarr;</a></span>
          </li>
       </ul>
     </div>
