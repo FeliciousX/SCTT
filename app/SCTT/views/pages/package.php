@@ -1,17 +1,3 @@
-<?php 
-    $category = array(  'name' => 'Day Tours from Kuching',
-                                  'main_link' => 'day_kuching',
-                                  'packages' => array( 'Kuching City Tour', 'Sarawak Cultural Village', 'Bidayuh Longhouse Experience', 'Frogs of Borneo' ),
-                                  'links' => array( 'kch_city_tour', 'swk_cultural_village', 'bidayuh_longhouse', 'borneo_frogs' ),
-                                  'images' => array( 'daykuching/kuching.png', 'daykuching/culturalvil.png', 'daykuching/bidayuh_longhouse.png', 'daykuching/frogs.png' )
-                        );
-    $package = array(   'name' => 'Kuching City Tour',
-                        'category' => 'Day Tours from Kuching',
-                        'code' => 'SC123456',
-                        'duration' => '3 Hours',
-                        'description' => 'Kuching City, the state capital of Sarawak is absolutely unique with its charm and easy grace. The Sarawak river that runs through the city centre divides the city into Kuching City North and Kuching City South. Kuching city is well preserved with old shopping bazaars, ornate chinese temples, the old stste mosque, colonial administrative buildings and the beautiful Kuching Waterfront. This tour takes you to the city tower for the panoramic view of the city and a visit to the famed Sarawak Museum – the finest Museum in Southeast Asia. Drive past the old state mosque and stop at the beautiful Kuching Waterfront to view the palace of the White Rajah and the magnificent Sarawak State Legislative Building across the river.'
-                        );
-?>
 <div class="container">
     <div class="row">
         <div class="span12 startOpacity">
@@ -28,7 +14,7 @@
                         foreach($query_p_by_c as $package)
                         {
                       ?>
-                        <li><a href="<?php echo base_url('package/' . $package['p_link_to']); ?>"><?php echo $package['p_name']; ?></a></li>
+                        <li <?php if($package['p_name'] == $query_p_specific[0]['p_name']) { echo 'class="active"'; } ?> ><a href="<?php echo base_url('package/' . $package['p_link_to']); ?>"><?php echo $package['p_name']; ?></a></li>
                       <?php 
                         }
 
@@ -38,7 +24,7 @@
                           {
                       ?>
                             <hr />
-                            <li class="nav-header"><a href="<?php echo base_url('category/' . $category['c_link_to']) ?>"><?php echo $category['c_name']; ?></a></li>
+                            <li class="nav-header"><a class="nav-link" href="<?php echo base_url('category/' . $category['c_link_to']) ?>"><?php echo $category['c_name']; ?></a></li>
                       <?php
                           }
                         }

@@ -27,11 +27,11 @@ class Home extends Public_Controller {
 		$this->data['query_c'] = $this->category_model->get_all_category();
 		$counter = 0;
 
-		foreach( object_to_array($this->data['query_c']) as $category )
+		foreach( object_to_array($this->data['query_c']) as $category)
 		{
-			$this->data['query_p_by_c'] = $this->package_model->get_package_by_category( $category['c_prefix'], $category['c_code'] );
-			if( $category['featured'] != 0 )
+			if($category['featured'] != 0)
 			{
+				$this->data['query_p_by_c'] = $this->package_model->get_package_by_category($category['c_prefix'], $category['c_code']);
 				$this->data['str_holder_c'][$counter] = $category;
 				$this->data['str_holder_p'][$counter] = object_to_array($this->data['query_p_by_c']);
 				++$counter;

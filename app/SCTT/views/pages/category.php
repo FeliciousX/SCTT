@@ -1,11 +1,3 @@
-<?php 
-    $category_o = array(  'name' => 'Day Tours from Kuching',
-                                  'main_link' => 'day_kuching',
-                                  'packages' => array( 'Kuching City Tour', 'Sarawak Cultural Village', 'Bidayuh Longhouse Experience', 'Frogs of Borneo' ),
-                                  'links' => array( 'kch_city_tour', 'swk_cultural_village', 'bidayuh_longhouse', 'borneo_frogs' ),
-                                  'images' => array( 'daykuching/kuching.png', 'daykuching/culturalvil.png', 'daykuching/bidayuh_longhouse.png', 'daykuching/frogs.png', 'daykuching/frogs.png', 'daykuching/frogs.png', 'daykuching/frogs.png', 'daykuching/frogs.png', 'daykuching/frogs.png', 'daykuching/frogs.png', 'daykuching/frogs.png' )
-                        );
-?>
 <div class="container">
     <div class="row">
         <div class="span12 startOpacity">
@@ -32,7 +24,7 @@
                           {
                       ?>
                             <hr />
-                            <li class="nav-header"><a href="<?php echo base_url('category/' . $category['c_link_to']) ?>"><?php echo $category['c_name']; ?></a></li>
+                            <li class="nav-header"><a class="nav-link" href="<?php echo base_url('category/' . $category['c_link_to']) ?>"><?php echo $category['c_name']; ?></a></li>
                       <?php
                           }
                         }
@@ -56,7 +48,7 @@
                     ?>
                      <div class="span4">
                          <a class="tile" href="<?php echo base_url('package/' . $query_p_by_c[$count]['p_link_to']); ?>">
-                             <div class="tile one" style = "background-image: url('<?php echo base_url('img/tiles') . '/' . $category_o['images'][$count]; ?>');">
+                             <div class="tile one" style = "background-image: url('<?php echo base_url('img/tiles') . '/' . 'none.jpg'; ?>');">
                                  <p class="tilefont"><?php echo $query_p_by_c[$count]['p_name']; ?></p>
                              </div>
                          </a>
