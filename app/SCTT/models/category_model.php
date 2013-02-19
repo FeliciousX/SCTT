@@ -62,7 +62,7 @@ class Category_model extends CI_Model {
         $c_description == '' ? '' : $this->c_description = $c_description;
         $c_name == '' ? '' : $this->c_name = $c_name;
         // $c_link_to == '' ? '' : $this->c_link_to = $c_link_to;
-        $featured == 0 ? 0 : $this->featured = $featured;
+        $featured != 0 ? $this->featured = $featured : $this->featured = 0;
 
         $this->c_link_to = 'index/' . $this->c_prefix . $this->c_code;
 
