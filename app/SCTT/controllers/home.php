@@ -7,6 +7,7 @@ class Home extends Public_Controller {
 		parent::__construct();
 		$this->load->model('category_model');
 		$this->load->model('package_model');
+		// $this->load->model('banner');
 		$this->load->helper('array');
 	}
 
@@ -40,12 +41,52 @@ class Home extends Public_Controller {
 
 		$this->load->view('templates/head', $this->data);
 		$this->load->view('templates/navbar', $this->data);
+
+		$this->_populate_banner();
 		$this->load->view('templates/banner', $this->data);
 		$this->load->view('pages/home', $this->data);
 		$this->load->view('templates/footer', $this->data);
 	}
 
+	private function _populate_banner()
+	{
+		$this->data['item']['img'] = array(
+			img('img/category/1.jpg'),
+			img('img/category/2.jpg'),
+			img('img/category/3.jpg'),
+			img('img/category/4.jpg')
+			);
 
+		$this->data['item']['caption'] = array(
+			'<div class="container">
+            <div class="carousel-caption">
+              <h1>Example headline.</h1>
+              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <a class="btn btn-large btn-primary" href="#">Sign up today</a>
+            </div>
+          </div>',
+          '<div class="container">
+            <div class="carousel-caption">
+              <h1>Anotheraa example headline.</h1>
+              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <a class="btn btn-large btn-primary" href="#">Learn more</a>
+            </div>
+          </div>',
+          '<div class="container">
+            <div class="carousel-caption">
+              <h1>One more for good measure.</h1>
+              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <a class="btn btn-large btn-primary" href="#">Browse gallery</a>
+            </div>
+          </div>',
+          '<div class="container">
+            <div class="carousel-caption">
+              <h1>Another example headline.</h1>
+              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <a class="btn btn-large btn-primary" href="#">Learn more</a>
+            </div>
+          </div>');
+	}
 
 }
 

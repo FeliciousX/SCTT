@@ -25,7 +25,8 @@ class Admin_Controller extends MY_Controller {
 
 		$this->data['nav_list'] = array(
 					anchor('/admin/home', 'Home'),
-					anchor('/admin/categories/', 'Categories'),
+					anchor('/admin/banner', 'Banner'),
+					anchor('/admin/categories', 'Categories'),
 					anchor('/admin/packages', 'Packages'),
 					anchor('/admin/photo_gallery', 'Photo Gallery'),
 					anchor('/admin/accounts', 'Accounts')
