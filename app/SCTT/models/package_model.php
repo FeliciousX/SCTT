@@ -80,11 +80,11 @@ class Package_model extends CI_Model {
         $c_prefix == '' ? '' : $this->c_prefix = $c_prefix;
         $c_code == 0 ? 0 : $this->c_code = $c_code;
         $p_name == '' ? '' : $this->p_name = $p_name;
-        $price == 0 ? 0 : $this->price = $price;
+        $price != 0 ? $this->price = $price : $this->price = 0;
         $description == '' ? '' : $this->description = $description;
         $duration == '' ? '' : $this->duration = $duration;
 
-        $this->p_link_to = 'index/' . $this->c_prefix . $this->c_code . '-' . $this->p_code;
+        $this->p_link_to = $this->c_prefix . $this->c_code . '-' . $this->p_code;
 
         // Generates: INSERT INTO `package` (p_code, c_prefix, c_code, p_name, price, description, p_link_to, duration)
         // VALUES ({$this->p_code}, {$this->c_prefix}, {$this->c_code}, {$this->p_name}, {this->price}, {this->description}, {$this->p_link_to}, {$this->duration})

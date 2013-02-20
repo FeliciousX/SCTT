@@ -55,7 +55,10 @@
                         </div>
                         <div class="control-group">
                            <?php echo form_label('Human Verification', 'captcha', array('class' => 'control-label')); ?>
-                           <div class="controls"></div>
+                           <div class="controls">
+                             <?php echo $captcha['image']; ?>
+                              <input class="input-xlarge" type="text" placeholder="Insert what you see in the image above" name="captcha" value="" />
+                           </div>
                         </div>
                         <?php echo form_submit($form['submit']); ?>
                     <?php echo form_fieldset_close(); ?>

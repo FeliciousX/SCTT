@@ -64,7 +64,7 @@ class Category_model extends CI_Model {
         // $c_link_to == '' ? '' : $this->c_link_to = $c_link_to;
         $featured != 0 ? $this->featured = $featured : $this->featured = 0;
 
-        $this->c_link_to = 'index/' . $this->c_prefix . $this->c_code;
+        $this->c_link_to = $this->c_prefix . $this->c_code;
 
         // Generates: INSERT INTO `category` (c_prefix, c_code, c_description, c_name, c_link_to, featured)
         // VALUES ({$this->c_prefix}, {$this->c_code}, {$this->c_description}, {$this->c_name}, {$this->c_link_to}, {$this->featured})

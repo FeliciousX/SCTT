@@ -42,7 +42,7 @@
                         </div>
                            <div class="control-group">
                               <label class="control-label" for="category">Category</label> 
-                              <div class="controls"><input type="text" disabled="disabled" value="<?php echo $query_c_specific[0]['c_name']; ?>" id="category" name="category" /></div>
+                              <div class="controls"><input class="input-xlarge" type="text" disabled="disabled" value="<?php echo $query_c_specific[0]['c_name']; ?>" id="category" name="category" /></div>
                            </div>
                            <div class="control-group">
                               <label class="control-label" for="code">Package Code</label> 
@@ -92,7 +92,10 @@
                         </div>
                         <div class="control-group">
                            <label class="control-label" for="captcha">Human Verification</label>
-                           <div class="controls"></div>
+                           <div class="controls">
+                              <?php echo $cap['image']; ?>
+                              <input class="input-xlarge" type="text" placeholder="Insert what you see in the image above" name="captcha" value="" />
+                           </div>
                         </div>
                         <button type="submit" class="btn btn-primary btn-large rightalign"> Submit Booking </button>
                         <br />

@@ -7,7 +7,9 @@ class Booking extends Public_Controller {
 		parent::__construct();
 		$this->load->model('category_model');
 		$this->load->model('package_model');
+		$this->load->model('captcha_model');
 		$this->load->helper('array');
+		$this->load->helper('captcha');
 	}
 
 	public function index($cp_code = '')
@@ -39,6 +41,22 @@ class Booking extends Public_Controller {
 		$this->data['query_c'] = object_to_array($this->category_model->get_all_category());
 		$this->data['query_p_by_c'] = object_to_array($this->package_model->get_package_by_category($c_prefix, $c_code));
 		$this->data['query_p_specific'] = object_to_array($this->package_model->get_package_by_code($p_code, $c_prefix, $c_code));
+
+		$vals = array(
+			'img_path' => './captcha/',
+			'img_url' => base_url('captcha')
+			);
+
+		$cap = create_captcha($vals);
+		$this->data['cap'] = $cap;
+
+		$captcha_data = array(
+			'captcha_time' => $cap['time'],
+			'ip_address' => $this->input->ip_address(),
+			'word' => $cap['word']
+			);
+
+		$this->data['query_cap'] = object_to_array($this->captcha_model->generate_captcha($captcha_data));
 
 		$this->load->view('templates/head', $this->data);
 		$this->load->view('templates/navbar', $this->data);

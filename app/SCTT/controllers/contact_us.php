@@ -6,8 +6,12 @@ class Contact_us extends Public_Controller {
 	{
 		parent::__construct();
 
+		$this->load->model('captcha_model');
+		$this->load->helper('array');
 		$this->load->helper('form');
+		$this->load->helper('captcha');
 		$this->load->library('form_validation');
+		$this->load->library('image_lib');
 	}
 
 	public function index()
@@ -24,10 +28,16 @@ class Contact_us extends Public_Controller {
 		$this->data['nav_active'] = explode('/', $this->data['page_uri']);
 
 		$this->_populate_contact_us_form();
+		$this->_load_captcha();
 
-		if ($this->input->post('submit')) {
-			if ($this->form_validation->run()) {
-				$this->_enquire();				
+		if ($this->input->post('submit')) 
+		{
+			if ($this->form_validation->run()) 
+			{
+				if ($this->_captcha_check())
+				{
+					$this->_enquire();				
+				}
 			}
 		}
 
@@ -37,6 +47,34 @@ class Contact_us extends Public_Controller {
 		$this->load->view('pages/contact_us', $this->data);
 		$this->load->view('templates/footer', $this->data);
 
+	}
+
+	private function _load_captcha()
+	{
+		$vals = array(
+			'img_path' => './captcha/',
+			'img_url' => base_url('captcha'),
+			);
+
+		$cap = create_captcha($vals);
+		$this->data['captcha'] = $cap;
+
+		$captcha_data = array(
+			'captcha_time' => $cap['time'],
+			'ip_address' => $this->input->ip_address(),
+			'word' => $cap['word']
+			);
+
+		$this->captcha_model->generate_captcha($captcha_data);
+	}
+
+	private function _captcha_check()
+	{
+		if($this->captcha_model->verify_captcha())
+		{
+			echo '<button type="button" class="close" data-dismiss="alert">&times;</button>';
+			echo '<div class="alert alert-error">Please submit the word that appears in the image correctly</div>';
+		}
 	}
 
 	private function _enquire()
