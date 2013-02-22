@@ -132,6 +132,21 @@ class Model_test extends Toast
 
 		$this->message = "TABLE banner created";
 	}
+
+	function test_model_captcha()
+	{
+		$this->load->model('setup/captcha');
+
+		$drop = $this->captcha->drop_table();
+
+		$this->_assert_true($drop);
+
+		$var = $this->captcha->create_table();
+
+		$this->_assert_true($var);
+
+		$this->message = "TABLE captcha created";
+	}
 }
 
 // End of file example_test.php */

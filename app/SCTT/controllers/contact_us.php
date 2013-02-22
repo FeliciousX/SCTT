@@ -52,12 +52,22 @@ class Contact_us extends Public_Controller {
 	private function _load_captcha()
 	{
 		$vals = array(
-			'img_path' => './captcha/',
-			'img_url' => base_url('captcha'),
+			// 'img_path' =>  dirname(getcwd()) . '\app\SCTT\captcha',
+			'img_path' =>  getcwd() . '\captcha\\',
+			'img_url' => base_url('captcha') . '/'
 			);
 
 		$cap = create_captcha($vals);
-		$this->data['captcha'] = $cap;
+		$this->data['image'] = $cap['image'];
+
+		// $img_str = substr($cap['image'], 9);
+		// echo $img_str . '<br />';
+		// $img_pos = strpos($img_str, 'w');
+		// $img_str = substr($img_str, 0, $img_pos);
+
+		// echo $img_str;
+
+		// $this->data['image'] 
 
 		$captcha_data = array(
 			'captcha_time' => $cap['time'],

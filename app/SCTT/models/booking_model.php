@@ -14,7 +14,7 @@ class Booking_model extends CI_Model {
 	var $date_booked = '';
     var $status = '';
     var $date_start = '';
-    var $date_end = '';
+    var $message = '';
 
     function __construct()
     {
@@ -27,7 +27,7 @@ class Booking_model extends CI_Model {
     	$this->date_booked = $this->input->post('date_booked');
         $this->status = $this->input->post('status');
         $this->date_start = $this->input->post('date_start');
-        $this->date_end = $this->input->post('date_end');
+        $this->message = $this->input->post('message');
 
         // Always get from table booking ...
         $this->db->from('booking');
@@ -118,17 +118,6 @@ class Booking_model extends CI_Model {
         return $query->result();
     }
 
-    function get_all_booking_by_date_end()
-    {
-        $this->date_end = substr(standard_date('DATE_ISO8601', $this->date_end), 0, 10);
-        $this->db->where('date_end', $this->date_end);
-
-        // GENERATES: SELECT * FROM (`booking`) WHERE `date_end` = {$this->date_end}
-        $query = $this->db->get();
-
-        return $query->result();
-    }
-
     function insert_booking()
     {
         $format = 'DATE_ISO8601';
@@ -136,9 +125,9 @@ class Booking_model extends CI_Model {
         $this->date_booked = substr(standard_date($format, $time), 0, 10);
         $this->status = "PENDING"; // Default value
 
-        // Generates: INSERT INTO `booking` (p_code, c_prefix, c_code, email, date_booked, status, date_start, date_end)
+        // Generates: INSERT INTO `booking` (p_code, c_prefix, c_code, email, date_booked, status, date_start)
         // VALUES ({$this->p_code}, {$this->c_prefix}, {$this->c_code}, {$this->email}, {$this->date_booked},
-        //         {$this->status}, {$this->date_start}, {$this->date_end})
+        //         {$this->status}, {$this->date_start}, {$this->message}
     	return $this->db->insert('booking', $this);
     }
 
@@ -148,15 +137,15 @@ class Booking_model extends CI_Model {
         $this->db->set('c_prefix', $this->c_prefix);
         $this->db->set('c_code', $this->c_code);
         $this->db->set('date_start', $this->date_start);
-        $this->db->set('date_end', $this->date_end);
         $this->db->set('status', $this->status);
+        $this->db->set('message', $this->message);
 
         $this->db->where('email', $this->email);
     	$this->db->where('date_booked', $this->date_booked);
 
         // Generates: UPDATE booking
         // SET p_code = '{$this->p_code}', c_prefix = '{$this->c_prefix}', c_code = '{$this->c_code}',
-        //      date_start = '{$this->date_start}', date_end = '{$this->date_end}, status = '{$this->status}'
+        //      date_start = '{$this->date_start}', status = '{$this->status}'
         // WHERE email = '{$this->email}' AND date_booked = '{$this->date_booked}'
     	return $this->db->update();
     }

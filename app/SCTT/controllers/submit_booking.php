@@ -7,6 +7,7 @@ class Submit_booking extends Public_Controller {
 		parent::__construct();
 		$this->load->model('category_model');
 		$this->load->model('package_model');
+		$this->load->model('booking_model');
 		$this->load->model('captcha_model');
 		$this->load->helper('array');
 	}
@@ -24,7 +25,7 @@ class Submit_booking extends Public_Controller {
 		$this->data['page_uri'] = uri_string();
 		$this->data['nav_active'] = explode('/', $this->data['page_uri']);
 
-		$this->captcha_model->verify_captcha();
+		// $this->captcha_model->verify_captcha();
 
 		$this->load->view('templates/head', $this->data);
 		$this->load->view('templates/navbar', $this->data);

@@ -11,7 +11,7 @@ class Booking extends CI_Model {
     private $col_date_booked = "date_booked"; // DATE
     private $col_status = "status";           // ENUM (pending, confirmed, cancelled )
     private $col_date_start = "date_start";   // DATE
-    private $col_date_end = "date_end";       // DATE
+    private $col_message = "message";         // TEXT
 
 	function __construct()
     {
@@ -34,7 +34,7 @@ class Booking extends CI_Model {
             {$this->col_date_booked} DATE NOT NULL,
             {$this->col_status} ENUM('PENDING', 'CONFIRMED', 'CANCELLED') NOT NULL,
             {$this->col_date_start} DATE,
-            {$this->col_date_end} DATE,
+            {$this->col_message} TEXT,
     		PRIMARY KEY ({$this->col_booking_id}, {$this->col_date_booked})
             )";
 

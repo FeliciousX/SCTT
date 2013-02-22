@@ -42,15 +42,18 @@
                         </div>
                            <div class="control-group">
                               <label class="control-label" for="category">Category</label> 
-                              <div class="controls"><input class="input-xlarge" type="text" disabled="disabled" value="<?php echo $query_c_specific[0]['c_name']; ?>" id="category" name="category" /></div>
+                              <div class="controls"><input class="input-xlarge" type="text" disabled="disabled" value="<?php echo $query_c_specific[0]['c_name']; ?>"/></div>
+                              <input type="hidden" value="<?php echo $query_c_specific[0]['c_name']; ?>" id="category" name="category" />
                            </div>
                            <div class="control-group">
                               <label class="control-label" for="code">Package Code</label> 
-                              <div class="controls"><input type="text" disabled="disabled" value="<?php echo $cp_code; ?>" id="code" name="code" /></div>
+                              <div class="controls"><input type="text" disabled="disabled" value="<?php echo $cp_code; ?>" /></div>
+                              <input type="hidden" value="<?php echo $cp_code; ?>" id="code" name="code" />
                            </div>
                            <div class="control-group">
                               <label class="control-label" for="duration">Duration</label>
-                              <div class="controls"><input type="text" disabled="disabled" value="<?php echo $query_p_specific[0]['duration']; ?>" id="duration" name="duration" /></div>
+                              <div class="controls"><input type="text" disabled="disabled" value="<?php echo $query_p_specific[0]['duration']; ?>" /></div>
+                              <input type="hidden" value="<?php echo $query_p_specific[0]['duration']; ?>" id="duration" name="duration" />
                            </div>
                         <hr />
                         <div class="control-group">
@@ -81,7 +84,10 @@
                         <div class="control-group">
                            <label class="control-label" for="date">Date</label>
                            <div class="controls">
-                              <input type="text" placeholder="Intended Date of Tour" id="subject" name="subject" />
+                              <div class="input-append date" id="dp3" data-date="<?php echo date("d-m-Y", (mktime(0,0,0,date("m"),date("d"),date("Y")))); ?>" data-date-format="dd-mm-yyyy">
+                              <input class="span2" size="16" type="text" value="<?php echo date("d-m-Y", (mktime(0,0,0,date("m"),date("d"),date("Y")))); ?>">
+                              <span class="add-on"><i class="icon-th"></i></span>
+                              </div>
                            </div>
                         </div>
                         <div class="control-group">
@@ -93,7 +99,9 @@
                         <div class="control-group">
                            <label class="control-label" for="captcha">Human Verification</label>
                            <div class="controls">
-                              <?php echo $cap['image']; ?>
+                              <?php 
+                              // echo $cap['image']; 
+                              ?>
                               <input class="input-xlarge" type="text" placeholder="Insert what you see in the image above" name="captcha" value="" />
                            </div>
                         </div>

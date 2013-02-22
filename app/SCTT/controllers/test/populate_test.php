@@ -77,31 +77,31 @@ class Populate_test extends Toast
 		$truncate = $this->package->clear_table();
 		$this->_assert_true($truncate);
 
-		$var = $this->package_model->insert_package('001', 'A', 1, 'Kuching City Tour', 0.00, 'Kuching City, the state capital of Sarawak is absolutely unique with its charm and easy grace. The Sarawak river that runs through the city centre divides the city into Kuching City North and Kuching City South. Kuching city is well preserved with old shopping bazaars, ornate chinese temples, the old stste mosque, colonial administrative buildings and the beautiful Kuching Waterfront. This tour takes you to the city tower for the panoramic view of the city and a visit to the famed Sarawak Museum – the finest Museum in Southeast Asia. Drive past the old state mosque and stop at the beautiful Kuching Waterfront to view the palace of the White Rajah and the magnificent Sarawak State Legislative Building across the river.', '1 Hour');
+		$var = $this->package_model->insert_package('001', 'A', 1, 'Kuching City Tour', 1000.00, 'Kuching City, the state capital of Sarawak is absolutely unique with its charm and easy grace. The Sarawak river that runs through the city centre divides the city into Kuching City North and Kuching City South. Kuching city is well preserved with old shopping bazaars, ornate chinese temples, the old stste mosque, colonial administrative buildings and the beautiful Kuching Waterfront. This tour takes you to the city tower for the panoramic view of the city and a visit to the famed Sarawak Museum – the finest Museum in Southeast Asia. Drive past the old state mosque and stop at the beautiful Kuching Waterfront to view the palace of the White Rajah and the magnificent Sarawak State Legislative Building across the river.', '1 Hour');
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('002', 'A', 1, 'Sarawak Cultural Village', 0.00, 'Sample description.', '2 Hours');
+		$var = $this->package_model->insert_package('002', 'A', 1, 'Sarawak Cultural Village', 800.00, 'Sample description.', '2 Hours');
 		$this->_assert_true($var);
 
 		$var = $this->package_model->insert_package('003', 'A', 1, 'Bidayuh Longhouse Experience', 0.00, 'Sample description', '3 Hours');
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('004', 'A', 1, 'Frogs of Borneo', 0.00, 'Sample Decription', '7 Hours');
+		$var = $this->package_model->insert_package('004', 'A', 1, 'Frogs of Borneo', 2000.00, 'Sample Decription', '7 Hours');
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('001', 'A', 2, 'Orang Utan Conservation Programme', 0.00, 'Sample description', '2 Hours');
+		$var = $this->package_model->insert_package('001', 'A', 2, 'Orang Utan Conservation Programme', 2500.00, 'Sample description', '2 Hours');
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('002', 'A', 2, 'Bako National Park and Wildlife Experience', 0.00, 'Sample description', '3 Hours');
+		$var = $this->package_model->insert_package('002', 'A', 2, 'Bako National Park and Wildlife Experience', 300.50, 'Sample description', '3 Hours');
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('003', 'A', 2, 'Iban Longhouse Safari', 0.00, 'Sample description.', '2 Days 1 Night');
+		$var = $this->package_model->insert_package('003', 'A', 2, 'Iban Longhouse Safari', 0.50, 'Sample description.', '2 Days 1 Night');
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('004', 'A', 2, 'Longhouse & Batang Ai Resort', 0.00, 'Sample description.', '2 Days 1 Night');
+		$var = $this->package_model->insert_package('004', 'A', 2, 'Longhouse & Batang Ai Resort', 0.05, 'Sample description.', '2 Days 1 Night');
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('005', 'A', 2, 'Batang Ai Resort & Iban Longhouse Experience', 0.00, 'Sample description.', '2 Days 1 Night');
+		$var = $this->package_model->insert_package('005', 'A', 2, 'Batang Ai Resort & Iban Longhouse Experience', 1.12, 'Sample description.', '2 Days 1 Night');
 		$this->_assert_true($var);
 
 		$var = $this->package_model->insert_package('006', 'A', 2, 'Batang Ai Rainforest Explorer', 0.00, 'Sample description.', '2 Days 1 Night');
@@ -110,7 +110,7 @@ class Populate_test extends Toast
 		$var = $this->package_model->insert_package('007', 'A', 2, 'Sarawak Sea Turtle Conservation Program at Talang-Talang Island');
 		$this->_assert_true($var);
 
-		$var = $this->package_model->insert_package('001', 'A', 3, 'Mulu National Park & World Heritage Site', 0.00, 'Sample description.', '2 Days 1 Night');
+		$var = $this->package_model->insert_package('001', 'A', 3, 'Mulu National Park & World Heritage Site', 320.20, 'Sample description.', '2 Days 1 Night');
 		$this->_assert_true($var);
 
 		$var = $this->package_model->insert_package('002', 'A', 3, 'Mulu National Park & Pinnacles', 0.00, 'Sample description.', '2 Days 1 Night');

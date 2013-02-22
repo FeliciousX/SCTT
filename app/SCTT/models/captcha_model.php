@@ -15,6 +15,7 @@ class Captcha_model extends CI_Model {
     {
         parent::__construct();
         $this->load->helper('captcha');
+        $this->load->library('image_lib');
     }
 
     function generate_captcha($captcha_data) 
