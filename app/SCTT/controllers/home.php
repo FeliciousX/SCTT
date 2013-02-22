@@ -7,7 +7,7 @@ class Home extends Public_Controller {
 		parent::__construct();
 		$this->load->model('category_model');
 		$this->load->model('package_model');
-		// $this->load->model('banner');
+		$this->load->model('banner_model');
 		$this->load->helper('array');
 	}
 
@@ -35,6 +35,7 @@ class Home extends Public_Controller {
 				$this->data['query_p_by_c'] = $this->package_model->get_package_by_category($category['c_prefix'], $category['c_code']);
 				$this->data['str_holder_c'][$counter] = $category;
 				$this->data['str_holder_p'][$counter] = object_to_array($this->data['query_p_by_c']);
+				$this->data['img_url'][$counter] = base_url('img/category/' . $category['c_prefix'] . $category['c_code']);
 				++$counter;
 			}
 		}
@@ -48,44 +49,42 @@ class Home extends Public_Controller {
 		$this->load->view('templates/footer', $this->data);
 	}
 
+	/**
+	* Populates the banner for the home page.
+	*
+	*/
 	private function _populate_banner()
 	{
-		$this->data['item']['img'] = array(
-			img('img/category/1.jpg'),
-			img('img/category/2.jpg'),
-			img('img/category/3.jpg'),
-			img('img/category/4.jpg')
-			);
+		$query = object_to_array($this->banner_model->get_all_banner());
 
-		$this->data['item']['caption'] = array(
-			'<div class="container">
-            <div class="carousel-caption">
-              <h1>Example headline.</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class="btn btn-large btn-primary" href="#">Sign up today</a>
-            </div>
-          </div>',
-          '<div class="container">
-            <div class="carousel-caption">
-              <h1>Anotheraa example headline.</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class="btn btn-large btn-primary" href="#">Learn more</a>
-            </div>
-          </div>',
-          '<div class="container">
-            <div class="carousel-caption">
-              <h1>One more for good measure.</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class="btn btn-large btn-primary" href="#">Browse gallery</a>
-            </div>
-          </div>',
-          '<div class="container">
-            <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class="btn btn-large btn-primary" href="#">Learn more</a>
-            </div>
-          </div>');
+		$this->data['item']['img'][0] = '';
+		$this->data['item']['caption'][0] = '';
+
+		$i = 0;
+
+		if ($query)
+		{
+			foreach ($query as $item)
+			{
+				$this->data['item']['img'][$i] = '';
+				$this->data['item']['caption'][$i] = '';
+				$item['link'] = 'category';
+
+				$this->data['item']['img'][$i] = img($item['img']);
+
+				if ($item['caption'] == 1)
+				{
+					$this->data['item']['caption'][$i] = "<div class=\"container\"><div class=\"carousel-caption\"><h1>{$item['title']}</h1>
+					<p class=\"lead\">{$item['description']}</p>
+					<a class=\"btn btn-large btn-primary\" href=\"" . base_url($item['link']) ."\">{$item['button']}</a>
+					</div>
+					</div>";
+				}
+
+				$i++;
+			}
+		}
+		
 	}
 
 }

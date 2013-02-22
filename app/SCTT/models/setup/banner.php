@@ -9,6 +9,7 @@ class Banner extends CI_Model {
     private $col_title = "title"; // VARCHAR
     private $col_description = "description";  // TEXT
     private $col_button = "button";   // VARCHAR
+    private $col_link = "link";   // VARCHAR
 
 	function __construct()
     {
@@ -28,7 +29,8 @@ class Banner extends CI_Model {
             {$this->col_caption} INT(1) NOT NULL,
             {$this->col_title} VARCHAR(255),
             {$this->col_description} VARCHAR(255),
-            {$this->col_button} VARCHAR(255)
+            {$this->col_button} VARCHAR(255),
+            {$this->col_link} VARCHAR(255)
             )";
 
     	$query = $this->db->query($sql);

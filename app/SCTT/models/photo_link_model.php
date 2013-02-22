@@ -115,8 +115,9 @@ class Photo_link_model extends CI_Model {
         $this->db->limit(1);
         $this->db->where('c_prefix', $c_prefix);
         $this->db->where('c_code', $c_code);
+        $this->db->where('p_code', 0);
 
-        $qeury = $this->db->get();
+        $query = $this->db->get();
 
         if ($query->num_rows() > 0)
         {

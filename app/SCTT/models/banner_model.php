@@ -13,6 +13,7 @@ class Banner_model extends CI_Model {
     var $title = '';
     var $description = '';
     var $button = '';
+    var $link = '';
 
     /**
     * The constructor automatically populate the variables from the post input.
@@ -27,6 +28,7 @@ class Banner_model extends CI_Model {
         $this->title = $this->input->post('title');
         $this->description = $this->input->post('description');
         $this->button = $this->input->post('button');
+        $this->link = $this->input->post('link');
     }
 
     /**
@@ -61,9 +63,10 @@ class Banner_model extends CI_Model {
     * @param    $title string
     * @param    $description string
     * @param    $button string
+    * @param    $link string
     * @return   boolean
     */
-    function insert_banner($id = 0, $img = '', $caption = '', $title = '', $description = '', $button = '')
+    function insert_banner($id = 0, $img = '', $caption = '', $title = '', $description = '', $button = '', $link = '')
     {
         $id != 0 ? $this->id = $id : 0;
         $img != '' ? $this->img = $img : '';
@@ -71,9 +74,10 @@ class Banner_model extends CI_Model {
         $title != '' ? $this->title = $title : '';
         $description != '' ? $this->description = $description : '';
         $button != '' ? $this->button = $button : '';
+        $link != '' ? $this->link = $link : '';
 
         // Generates: INSERT INTO `banner`
-        // VALUES ({$id}, {$img}, {$caption}, {$title}, {$description}, {$button})
+        // VALUES ({$id}, {$img}, {$caption}, {$title}, {$description}, {$button}, {$link})
         $query = $this->db->insert('banner', $this);
 
         return $query;
@@ -112,20 +116,23 @@ class Banner_model extends CI_Model {
     * @param    $title string
     * @param    $description string
     * @param    $button string
+    * @param    $link string
     * @return   boolean
     */
-    function update_banner_name($id = 0, $caption = 1, $title = '', $description = '', $button = '')
+    function update_banner_name($id = 0, $caption = 1, $title = '', $description = '', $button = '', $link = '')
     {
-        $id != 0 ? $this->id = $id : 0;
-        $title != '' ? $this->title = $title : '';
-        $description != '' ? $this->description = $description : '';
-        $button != '' ? $this->button = $button : '';
+        $id == 0 ? $id = $this->id : 0;
+        $title == '' ? $title = $this->title : '';
+        $description == '' ? $description = $this->description : '';
+        $button == '' ? $button = $this->button : '';
+        $link == '' ? $link = $this->link : '';
 
         $this->db->from('banner');
 
         $this->db->set('title', $title);
         $this->db->set('description', $description);
         $this->db->set('button', $button);
+        $this->db->set('link', $link);
 
         $this->db->where('id', $id);
 

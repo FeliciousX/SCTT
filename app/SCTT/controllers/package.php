@@ -32,8 +32,8 @@ class Package extends Public_Controller {
 
 		$c_prefix = substr($cp_code, 0, 1); 		// Obtains c_prefix (only 1 alphabet)
 		$code = explode('-', $cp_code);
-		$c_code = substr($code[0], 1);				// Obtains c_code
-		$p_code = $code[1];							// Obtains p_code
+		$c_code = (int) substr($code[0], 1);		// Obtains c_code
+		$p_code = (int) $code[1];					// Obtains p_code
 
 		$this->data['query_c_specific'] = object_to_array($this->category_model->get_category_by_code($c_prefix, $c_code));
 		$this->data['query_c'] = object_to_array($this->category_model->get_all_category());
@@ -42,9 +42,21 @@ class Package extends Public_Controller {
 
 		$this->load->view('templates/head', $this->data);
 		$this->load->view('templates/navbar', $this->data);
+
+		$this->_populate_banner($c_prefix, $c_code, $p_code);
 		$this->load->view('templates/banner', $this->data);
 		$this->load->view('pages/package', $this->data);
 		$this->load->view('templates/footer', $this->data);
+	}
+
+	private function _populate_banner($c_prefix = '', $c_code = 0, $p_code = 0)
+	{
+		$url = 'img/category/' . $c_prefix . $c_code . '/' . $p_code;
+		$this->data['item']['img'][0] = img($url . '/1.png');
+
+		$this->data['item']['caption'][0] = file_get_contents(base_url($url . '/1.txt'));
+
+
 	}
 }
 

@@ -7,6 +7,7 @@ class Category extends Public_Controller {
 		parent::__construct();
 		$this->load->model('category_model');
 		$this->load->model('package_model');
+		$this->load->model('photo_link_model');
 		$this->load->helper('array');
 	}
 
@@ -34,10 +35,10 @@ class Category extends Public_Controller {
 		$this->data['query_c_specific'] = object_to_array($this->category_model->get_category_by_code($c_prefix, $c_code));
 		$this->data['query_c'] = object_to_array($this->category_model->get_all_category());
 		$this->data['query_p_by_c'] = object_to_array($this->package_model->get_package_by_category($c_prefix, $c_code));
+		$this->data['img_url'] = base_url('img/category/' . $c_prefix . $c_code);
 
 		$this->load->view('templates/head', $this->data);
 		$this->load->view('templates/navbar', $this->data);
-		$this->load->view('templates/banner', $this->data);
 		$this->load->view('pages/category', $this->data);
 		$this->load->view('templates/footer', $this->data);
 	}
