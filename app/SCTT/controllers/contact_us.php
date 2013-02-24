@@ -108,6 +108,7 @@ class Contact_us extends Public_Controller {
 		$this->email->send();
 
 		echo $this->email->print_debugger();
+		echo 'Enquiry sent!';
 	}
 
 	private function _populate_contact_us_form()

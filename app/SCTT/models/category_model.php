@@ -40,6 +40,17 @@ class Category_model extends CI_Model {
     	return $query->result();
     }
 
+    function get_all_category_orderby_code()
+    {
+        $this->db->from('category');
+        $this->db->order_by('c_prefix', 'asc');
+        $this->db->order_by('c_code', 'asc');
+        // Generates: SELECT * FROM (`category`) ORDERBY c_link_to ASC
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
     function get_category_by_code($c_prefix = '', $c_code = 0)
     {
         $this->db->from('category');
@@ -61,7 +72,6 @@ class Category_model extends CI_Model {
         $c_code == 0 ? 0 : $this->c_code = $c_code;
         $c_description == '' ? '' : $this->c_description = $c_description;
         $c_name == '' ? '' : $this->c_name = $c_name;
-        // $c_link_to == '' ? '' : $this->c_link_to = $c_link_to;
         $featured != 0 ? $this->featured = $featured : $this->featured = 0;
 
         $this->c_link_to = $this->c_prefix . $this->c_code;
@@ -119,7 +129,10 @@ class Category_model extends CI_Model {
 
     function update_category_by_link()
     {
-    	$this->db->where('c_link_to', $this->c_link_to);
+        $this->db->from('category');
+    	$this->db->where('c_link_to', $this->input->post('c_link_to_old'));
+
+        $this->c_link_to = $this->c_prefix . $this->c_code;
 
         // Generates: UPDATE category
         // SET c_prefix = '{$this->c_prefix}' , c_code = '{$this->c_code}' , c_name = '{$this->c_name}'
@@ -155,8 +168,12 @@ class Category_model extends CI_Model {
     	return $this->db->delete('category');
     }
 
-    function delete_category_by_code()
+    function delete_category_by_code($c_prefix = '', $c_code = '')
     {
+        $c_prefix == '' ? '' : $this->c_prefix = $c_prefix;
+        $c_code == 0 ? 0 : $this->c_code = $c_code;
+
+        $this->db->from('category');
     	$this->db->where('c_prefix', $this->c_prefix);
     	$this->db->where('c_code', $this->c_code);
 

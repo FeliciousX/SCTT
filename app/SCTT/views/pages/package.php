@@ -64,7 +64,7 @@
                            <h3>
                               <div class="span2">Price:</div>
                               <div class="span5">
-                                <?php echo $query_p_specific[0]['price']; ?>
+                                <?php echo 'RM ' . $query_p_specific[0]['price']; ?>
                               </div>
                            </h3>
                         </div>

@@ -93,12 +93,11 @@ class Package_model extends CI_Model {
 
     function update_package_by_code()
     {
-        $this->db->set('p_name', $this->p_name);
-        $this->db->set('p_link_to', $this->p_link_to);
+        $this->db->where('p_code', $this->input->post('p_code_old'));
+    	$this->db->where('c_prefix', $this->input->post('c_prefix_old'));
+    	$this->db->where('c_code', $this->input->post('c_code_old'));
 
-        $this->db->where('p_code', $this->p_code);
-    	$this->db->where('c_prefix', $this->c_prefix);
-    	$this->db->where('c_code', $this->c_code);
+        $this->p_link_to = $this->c_prefix . $this->c_code . '-' . $this->p_code;
 
         // Generates: UPDATE package
         // SET p_name = '{$this->p_name}', p_link_to = '{$this->p_link_to}'
@@ -159,8 +158,13 @@ class Package_model extends CI_Model {
     	return $this->db->delete('package');
     }
 
-    function delete_package_by_code()
+    function delete_package_by_code($p_code = '', $c_prefix = '', $c_code = '')
     {
+        $this->db->from('package');
+        $p_code == 0 ? 0 : $this->p_code = $p_code;
+        $c_prefix == '' ? '' : $this->c_prefix = $c_prefix;
+        $c_code == 0 ? 0 : $this->c_code = $c_code;
+
         $this->db->where('p_code', $this->p_code);
     	$this->db->where('c_prefix', $this->c_prefix);
     	$this->db->where('c_code', $this->c_code);

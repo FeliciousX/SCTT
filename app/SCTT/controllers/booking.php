@@ -60,7 +60,6 @@ class Booking extends Public_Controller {
 
 		$this->load->view('templates/head', $this->data);
 		$this->load->view('templates/navbar', $this->data);
-		$this->load->view('templates/banner', $this->data);
 		$this->load->view('pages/booking', $this->data);
 		$this->load->view('templates/footer', $this->data);
 	}

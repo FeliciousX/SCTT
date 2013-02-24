@@ -43,6 +43,8 @@ $route['default_controller'] = "home";
 $route['category/([A-Z][0-9]+)'] = 'category/index/$1';
 $route['package/([A-Z][0-9]+\-\d+)'] = 'package/index/$1';
 
+$route['admin/packages/([A-Z][0-9]+)'] = 'admin/packages/index/$1';
+
 $route['404_override'] = '';
 
 /* End of file routes.php */

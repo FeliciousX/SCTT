@@ -28,7 +28,7 @@ class Client_model extends CI_Model {
         $this->country = $this->input->post('country');
 
         // Always get from table client ...
-        $this->db->from('client');
+        // $this->db->from('client');
     }
 
     function get_all_client()
@@ -41,6 +41,7 @@ class Client_model extends CI_Model {
 
     function get_client_by_email()
     {
+        $this->db->from('client');
         $this->db->where('email', $this->email);
 
         // Generates: SELECT * FROM (`client`) WHERE `email` = {$this->email}
@@ -111,6 +112,8 @@ class Client_model extends CI_Model {
 
     function update_client_by_email()
     {
+        $this->db->from('client');
+        
         $this->db->set('first_name', $this->first_name);
         $this->db->set('last_name', $this->last_name);
         $this->db->set('contact_no', $this->contact_no);

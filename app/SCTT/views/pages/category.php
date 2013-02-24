@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row">
+    <div class="row spacetop">
         <div class="span12 startOpacity">
             <ul class="breadcrumb">
               <li><a href="<?php echo base_url('category'); ?>">Tour Packages</a> <span class="divider">/</span></li>

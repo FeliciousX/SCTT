@@ -26,7 +26,7 @@ class Booking extends CI_Model {
     function create_table()
     {
     	$sql = "CREATE TABLE {$this->table_booking} (
-            {$this->col_booking_id} INT(4) NOT NULL,
+            {$this->col_booking_id} INT(4) NOT NULL AUTO_INCREMENT,
             {$this->col_p_code} INT(3) NOT NULL,
     		{$this->col_c_prefix} CHAR(1) NOT NULL,
     		{$this->col_c_code} INT(2) NOT NULL,

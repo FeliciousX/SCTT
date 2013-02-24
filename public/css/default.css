@@ -28,6 +28,10 @@ label {
 	font-size: 20px;
 }
 
+.nav-header {
+	text-transform: capitalize;
+}
+
 div.navbar {
 	margin-bottom: 0;
 }
@@ -62,6 +66,11 @@ div.navbar {
 
 .margintop {
 	margin-top: 8px;
+}
+
+.spacetop {
+	margin-top: 20px;
+	padding-top: 20px;
 }
 
 .formarea {

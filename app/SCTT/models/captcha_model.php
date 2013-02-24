@@ -37,11 +37,11 @@ class Captcha_model extends CI_Model {
 		$row = $query->row();
 		if($row->count == 0)
 		{
-			return FALSE;
+			return TRUE;
 		}
 		else
 		{
-			return TRUE;
+			return FALSE;
 		}
 	}
 
