@@ -22,6 +22,14 @@ $link = array(
 );
 echo link_tag($link) . "\n";
 
+$link = array(
+          'href' => 'css/datepicker.css',
+          'rel' => 'stylesheet',
+          'type' => 'text/css',
+          'media' => 'screen'
+);
+echo link_tag($link) . "\n";
+
 ?>
 </head>
 <body>
