@@ -55,6 +55,30 @@ class Banner_model extends CI_Model {
     }
 
     /**
+    * Query for banner by ID
+    *
+    * @access   public
+    * @return   object or FALSE
+    */
+    function get_banner($id = 0)
+    {
+        $this->db->from('banner');
+
+        // Generates: SELECT * FROM (`banner`) WHERE id = {$id}
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return FALSE;
+        }
+    }
+
+
+    /**
     * Insert a new banner to the database
     *
     * @access   public
@@ -81,6 +105,43 @@ class Banner_model extends CI_Model {
         $query = $this->db->insert('banner', $this);
 
         return $query;
+    }
+
+    /**
+    * Update a banner's caption
+    *
+    * @access   public
+    * @param    $id integer
+    * @param    $img string
+    * @param    $title string
+    * @param    $description string
+    * @param    $button string
+    * @param    $link string
+    * @return   boolean
+    */
+    function update_banner($id = 0, $img = '', $caption = 1, $title = '', $description = '', $button = '', $link = '')
+    {
+        $id == 0 ? $id = $this->id : 0;
+        $img == '' ? $img = $this->img : '';
+        $title == '' ? $title = $this->title : '';
+        $description == '' ? $description = $this->description : '';
+        $button == '' ? $button = $this->button : '';
+        $link == '' ? $link = $this->link : '';
+
+        $this->db->from('banner');
+
+        $this->db->set('img', $img);
+        $this->db->set('title', $title);
+        $this->db->set('description', $description);
+        $this->db->set('button', $button);
+        $this->db->set('link', $link);
+
+        $this->db->where('id', $id);
+
+        // Generates: UPDATE banner
+        // SET title = '{$title}', description = '{$description}', button = {$button}
+        // WHERE id = '{$id}'
+        return $this->db->update();
     }
 
     /**
@@ -119,7 +180,7 @@ class Banner_model extends CI_Model {
     * @param    $link string
     * @return   boolean
     */
-    function update_banner_name($id = 0, $caption = 1, $title = '', $description = '', $button = '', $link = '')
+    function update_banner_name($id = 0, $title = '', $description = '', $button = '', $link = '')
     {
         $id == 0 ? $id = $this->id : 0;
         $title == '' ? $title = $this->title : '';

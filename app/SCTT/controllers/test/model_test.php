@@ -110,11 +110,7 @@ class Model_test extends Toast
 
 		$this->_assert_true($drop);
 
-		$var = $this->photo_link->create_table();
-
-		$this->_assert_true($var);
-
-		$this->message = "TABLE photo link created";
+		$this->message = "TABLE photo link deleted";
 
 	}
 

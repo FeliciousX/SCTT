@@ -180,57 +180,6 @@ class Populate_test extends Toast
 		$this->_assert_true($var);
 	}
 
-	function test_populate_photo_link()
-	{
-		$this->load->model('photo_link_model');
-		$this->load->model('setup/photo_link');
-		$this->message = 'Populating photo_link table';
-
-		$truncate = $this->photo_link->clear_table();
-		$this->_assert_true($truncate);
-
-		$var = $this->photo_link_model->insert_photo_link(1, 'A', 1, '', '');
-		$this->_assert_true($var);
-
-		$var = $this->photo_link_model->insert_photo_link(2, 'A', 1, '', '');
-		$this->_assert_true($var);
-
-		$var = $this->photo_link_model->insert_photo_link(3, 'A', 1, '', '');
-		$this->_assert_true($var);
-
-		$var = $this->photo_link_model->insert_photo_link(4, 'A', 1, '', '');
-		$this->_assert_true($var);
-
-		$var = $this->photo_link_model->insert_photo_link(5, 'A', 1, '', '');
-		$this->_assert_true($var);
-
-		$var = $this->photo_link_model->insert_photo_link(1, 'A', 2, '', '');
-		$this->_assert_true($var);
-
-		$var = $this->photo_link_model->insert_photo_link(2, 'A', 2, '', '');
-		$this->_assert_true($var);
-
-		$var = $this->photo_link_model->insert_photo_link(3, 'A', 2, '', '');
-		$this->_assert_true($var);
-
-		$var = $this->photo_link_model->insert_photo_link(4, 'A', 2, '', '');
-		$this->_assert_true($var);
-
-		$var = $this->photo_link_model->insert_photo_link(1, 'A', 3, '', '');
-		$this->_assert_true($var);
-
-		$var = $this->photo_link_model->insert_photo_link(2, 'A', 3, '', '');
-		$this->_assert_true($var);
-
-		$var = $this->photo_link_model->insert_photo_link(3, 'A', 3, '', '');
-		$this->_assert_true($var);
-
-		$var = $this->photo_link_model->insert_photo_link(4, 'A', 3, '', '');
-		$this->_assert_true($var);
-
-		$var = $this->photo_link_model->insert_photo_link(5, 'A', 3, '', '');
-		$this->_assert_true($var);
-	}
 
 	function test_populate_admin($username = 'admin')
 	{
@@ -253,13 +202,13 @@ class Populate_test extends Toast
 		$truncate = $this->banner->clear_table();
 		$this->_assert_true($truncate);
 
-		$var = $this->banner_model->insert_banner(1, 'img/category/1.jpg', 1, 'Example headline.', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'Sign up today');
+		$var = $this->banner_model->insert_banner(1, 'img/banner/1.jpg', 1, 'Example headline.', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'Sign up today', 'gallery');
 		$this->_assert_true($var);
 
-		$var = $this->banner_model->insert_banner(2, 'img/category/2.jpg', 1, 'Anotheraa example headline.', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'Learn more');
+		$var = $this->banner_model->insert_banner(2, 'img/banner/2.jpg', 1, 'Anotheraa example headline.', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'Learn more', 'category/A1');
 		$this->_assert_true($var);
 
-		$var = $this->banner_model->insert_banner(3, 'img/category/3.jpg', 1, 'One more for good measure', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id', 'Browse Gallery');
+		$var = $this->banner_model->insert_banner(3, 'img/banner/3.jpg', 1, 'One more for good measure', 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id', 'Browse Gallery', 'package/A1-001');
 		$this->_assert_true($var);
 	}
 }

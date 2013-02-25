@@ -68,9 +68,9 @@ class Home extends Public_Controller {
 			{
 				$this->data['item']['img'][$i] = '';
 				$this->data['item']['caption'][$i] = '';
-				$item['link'] = 'category';
-
 				$this->data['item']['img'][$i] = img($item['img']);
+
+				$item['link'] = implode(explode(' ', $item['link']), '_');
 
 				if ($item['caption'] == 1)
 				{
