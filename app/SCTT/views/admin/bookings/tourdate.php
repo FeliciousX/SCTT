@@ -18,13 +18,12 @@
 		</div>
 		<div class="span4">
 			<div>
-				<form id="booking" name="booking" action="<?php echo base_url('admin/home/tourdate') ?>" method="post">
-					<div class="input-append date" id="dp3" data-date="<?php echo date("Y-m-d", (mktime(0,0,0,date("m"),date("d"),date("Y")))); ?>" data-date-format="yyyy-mm-dd">
-			            <input class="span2" id="date_start" name="date_start" size="16" type="text" value="<?php echo date("Y-m-d", (mktime(0,0,0,date("m"),date("d"),date("Y")))); ?>">
+				<form id="booking" name="booking" action="<?php echo base_url('admin/home/tourdate') ?>" method="get">
+					<div class="input-append date" id="dp3" data-date="<?php if($this->input->get('date_start')!='') { echo $this->input->get('date_start'); } else { echo date("Y-m-d", (mktime(0,0,0,date("m"),date("d"),date("Y")))); } ?>" data-date-format="yyyy-mm-dd">
+			            <input class="span2" id="date_start" name="date_start" size="16" type="text" value="<?php if($this->input->get('date_start')!='') { echo $this->input->get('date_start'); } else { echo date("Y-m-d", (mktime(0,0,0,date("m"),date("d"),date("Y")))); } ?>">
 			            <span class="add-on"><i class="icon-th"></i></span>
 			            <button type="submit" class="btn btn-primary">Search</button>
 					</div>
-					
 				</form>
 			</div>
 		</div>

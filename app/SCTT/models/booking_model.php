@@ -28,6 +28,10 @@ class Booking_model extends CI_Model {
     	$this->date_booked = $this->input->post('date_booked');
         $this->status = $this->input->post('status');
         $this->date_start = $this->input->post('date_start');
+        if($this->date_start == '')
+        {
+            $this->date_start = $this->input->get('date_start');
+        }
         $this->message = $this->input->post('message');
 
         // Always get from table booking ...
@@ -91,6 +95,7 @@ class Booking_model extends CI_Model {
     function get_all_booking_code_start()
     {
         $this->db->from('booking');
+        $this->db->where('email', $this->email);
         $this->db->where('p_code', $this->p_code);
         $this->db->where('c_prefix', $this->c_prefix);
         $this->db->where('c_code', $this->c_code);
@@ -153,7 +158,7 @@ class Booking_model extends CI_Model {
     {
         $this->db->from('booking');
         $this->db->where('date_start', $this->date_start);
-        $this->db->order_by('c_prefix asc, c_code asc, p_code asc, status asc');
+        $this->db->order_by('c_prefix asc, c_code asc, p_code asc');
 
         // GENERATES: SELECT * FROM (`booking`) WHERE `date_start` = {$this->date_start} ORDER BY c_prefix ASC, c_code ASC, p_code ASC, status ASC
         $query = $this->db->get();

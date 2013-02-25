@@ -20,7 +20,7 @@
 			<td><?php echo $booking['c_prefix'] ?></td>
 			<td><?php echo $booking['c_code'] ?></td>
 			<td><?php echo $booking['p_code'] ?></td>
-			<td><?php echo $booking['email'] ?></td>
+			<td><?php echo '<a href="JavaScript:newPopup(\'' . base_url('admin/client') . '/' . str_replace('@', '-', $booking['email']) . '\');">' . $booking['email'] . '</a>'; ?></td>
 			<td><?php echo $booking['date_booked'] ?></td>
 			<td><?php echo $booking['date_start'] ?></td>
 			<td>

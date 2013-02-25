@@ -50,6 +50,18 @@ class Client_model extends CI_Model {
         return $query->result();
     }
 
+    function get_client_by_email_param($email = '')
+    {
+        $email == '' ? '' : $this->email = $email;
+        $this->db->from('client');
+        $this->db->where('email', $this->email);
+
+        // Generates: SELECT * FROM (`client`) WHERE `email` = {$this->email}
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
     function get_client_by_contact_no()
     {
         $this->db->where('contact_no', $this->contact_no);

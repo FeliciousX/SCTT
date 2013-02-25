@@ -102,18 +102,6 @@ class Model_test extends Toast
 
 	}
 
-	function test_model_photo_link()
-	{
-		$this->load->model('setup/photo_link');
-
-		$drop = $this->photo_link->drop_table();
-
-		$this->_assert_true($drop);
-
-		$this->message = "TABLE photo link deleted";
-
-	}
-
 	function test_model_banner()
 	{
 		$this->load->model('setup/banner');
@@ -142,6 +130,21 @@ class Model_test extends Toast
 		$this->_assert_true($var);
 
 		$this->message = "TABLE captcha created";
+	}
+
+	function test_model_testimonial()
+	{
+		$this->load->model('setup/testimonial');
+
+		$drop = $this->testimonial->drop_table();
+
+		$this->_assert_true($drop);
+
+		$var = $this->testimonial->create_table();
+
+		$this->_assert_true($var);
+
+		$this->message = "TABLE testimonial created";
 	}
 }
 

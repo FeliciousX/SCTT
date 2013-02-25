@@ -7,7 +7,6 @@ class Category extends Public_Controller {
 		parent::__construct();
 		$this->load->model('category_model');
 		$this->load->model('package_model');
-		$this->load->model('photo_link_model');
 		$this->load->helper('array');
 	}
 

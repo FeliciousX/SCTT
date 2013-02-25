@@ -5,6 +5,8 @@ class Testimonial extends Public_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('testimonial_model');
+		$this->load->helper('array');
 	}
 
 	public function index()
@@ -17,8 +19,7 @@ class Testimonial extends Public_Controller {
 		
 		$this->data['title'] = 'Testimonial';
 
-		$this->data['page_uri'] = uri_string();
-		$this->data['nav_active'] = explode('/', $this->data['page_uri']);
+		$this->data['query'] = object_to_array($this->testimonial_model->get_all_testimonial());
 
 		$this->load->view('templates/head', $this->data);
 		$this->load->view('templates/navbar', $this->data);
