@@ -29,6 +29,7 @@ class Admin_Controller extends MY_Controller {
 					anchor('/admin/categories', 'Categories'),
 					anchor('/admin/packages', 'Packages'),
 					anchor('/admin/photo_gallery', 'Photo Gallery'),
+					anchor('/admin/testimonial', 'Testimonial'),
 					anchor('/admin/accounts', 'Accounts')
 					);
 	}

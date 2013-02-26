@@ -7,7 +7,7 @@ class Package extends Public_Controller {
 		parent::__construct();
 		$this->load->model('category_model');
 		$this->load->model('package_model');
-		$this->load->helper('array');
+		$this->load->helper(array('array', 'directory'));
 	}
 
 	public function index($cp_code = '')
@@ -52,11 +52,31 @@ class Package extends Public_Controller {
 	private function _populate_banner($c_prefix = '', $c_code = 0, $p_code = 0)
 	{
 		$url = 'img/category/' . $c_prefix . $c_code . '/' . $p_code;
-		$this->data['item']['img'][0] = img($url . '/1.png');
 
-		$this->data['item']['caption'][0] = file_get_contents(base_url($url . '/1.txt'));
+		$map = directory_map('./' . $url);
 
+		$j = 0;
+		$k = 0;
 
+		for ($i=0; $i < count($map); $i = $i + 2)
+		{
+			$item_url[$i] = img($url . '/' . $map[$i]);
+
+			$this->data['item']['img'][$j] = $item_url[$i];
+			
+			if (file_exists($url . '/' . substr($map[$i], 0, -3) . 'txt'))
+			{
+				$description = file_get_contents(base_url($url . '/' . substr($map[$i], 0, -3) . 'txt'));
+			
+				$this->data['item']['caption'][$j] = '<div class="container"><div class="carousel-caption"><p class="lead">' . $description . ' </p>	</div></div>';
+			}
+			else
+			{
+				$this->data['item']['caption'][$j] = '';
+			}
+			
+			$j++;
+		}
 	}
 }
 
