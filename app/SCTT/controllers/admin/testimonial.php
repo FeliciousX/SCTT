@@ -48,7 +48,7 @@ class Testimonial extends Admin_Controller {
 
 		if($this->input->post('source')!='')
 		{
-			$this->testimonial_model->edit_testimonial_by_id($id);
+			$this->testimonial_model->update_testimonial_by_id($this->input->post('id'));
 			redirect(base_url('admin/testimonial'), 'refresh');
 		}
 

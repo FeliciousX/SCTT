@@ -9,6 +9,7 @@
 				Use standard HTML formatting for the message <?php echo '(e.g. ' . htmlentities("<p>") . ' Sample text ' . htmlentities("<p>") . ' or ' . htmlentities("<br/>") . ' to break to a new line )'; ?>
 			</div>
 			</div>
+			<input type="hidden" id="id" name="id" value="<?php echo $query[0]['id']; ?>" />
 			<label for="message">Message</label>
 			<textarea rows="3" id="message" name="message"> <?php echo $query[0]['message']; ?> </textarea>
 			<label for="source">Source</label>
