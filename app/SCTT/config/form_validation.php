@@ -93,5 +93,52 @@ $config = array(
                            'label' => 'Password',
                            'rules' => 'trim|required'
                            )
-                  )
+                  ),
+   'submit_booking/index' => array(
+                        array(
+                           'field' => 'first_name',
+                           'label' => 'First Name',
+                           'rules' => 'trim|required'
+                           ),
+                        array(
+                           'field' => 'last_name',
+                           'label' => 'Last Name',
+                           'rules' => 'trim|required'
+                           ),
+                        array(
+                           'field' => 'address',
+                           'label' => 'Address',
+                           'rules' => 'required|xss_clean'
+                           ),
+                        array(
+                           'field' => 'country',
+                           'label' => 'Country',
+                           'rules' => 'required|xss_clean|trim'
+                           ),
+                        array(
+                           'field' => 'contact_no',
+                           'label' => 'Contact Number',
+                           'rules' => 'required|xss_clean|trim'
+                           ),
+                        array(
+                           'field' => 'fax_no',
+                           'label' => 'Fax Number',
+                           'rules' => 'trim'
+                           ),
+                        array(
+                           'field' => 'email',
+                           'label' => 'Email',
+                           'rules' => 'trim|xss_clean|required|valid_email'
+                           ),
+                        array(
+                           'field' => 'date_start',
+                           'label' => 'Date',
+                           'rules' => 'xss_clean|required|alpha_dash|trim'
+                           ),
+                        array(
+                           'field' => 'message',
+                           'label' => 'Message',
+                           'rules' => 'xss_clean|alpha_numeric'
+                           )
+                        )
       );

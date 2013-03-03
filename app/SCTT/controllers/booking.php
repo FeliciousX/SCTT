@@ -42,26 +42,34 @@ class Booking extends Public_Controller {
 		$this->data['query_p_by_c'] = object_to_array($this->package_model->get_package_by_category($c_prefix, $c_code));
 		$this->data['query_p_specific'] = object_to_array($this->package_model->get_package_by_code($p_code, $c_prefix, $c_code));
 
-		// $vals = array(
-		// 	'img_path' => './captcha/',
-		// 	'img_url' => base_url('captcha')
-		// 	);
+		$this->_load_captcha();
 
-		// $cap = create_captcha($vals);
-		// $this->data['cap'] = $cap;
-
-		// $captcha_data = array(
-		// 	'captcha_time' => $cap['time'],
-		// 	'ip_address' => $this->input->ip_address(),
-		// 	'word' => $cap['word']
-		// 	);
-
-		// $this->data['query_cap'] = object_to_array($this->captcha_model->generate_captcha($captcha_data));
-
+		$this->session->set_flashdata('redirect', $this->uri->uri_string());
 		$this->load->view('templates/head', $this->data);
 		$this->load->view('templates/navbar', $this->data);
 		$this->load->view('pages/booking', $this->data);
 		$this->load->view('templates/footer', $this->data);
+	}
+
+	private function _load_captcha()
+	{
+		$vals = array(
+			'img_path' =>  getcwd() . '\captcha\\',
+			'img_url' => base_url('captcha') . '/',
+			'img_width' => '260',
+			'img_height' => '50'
+			);
+
+		$cap = create_captcha($vals);
+		$this->data['cap']['image'] = $cap['image'];
+
+		$captcha_data = array(
+			'captcha_time' => $cap['time'],
+			'ip_address' => $this->input->ip_address(),
+			'word' => $cap['word']
+			);
+
+		$this->captcha_model->generate_captcha($captcha_data);
 	}
 }
 

@@ -34,16 +34,26 @@ class Contact_us extends Public_Controller {
 		{
 			if ($this->form_validation->run()) 
 			{
-				if ($this->_captcha_check())
+				if ($this->captcha_model->verify_captcha())
 				{
-					$this->_enquire();				
+					$this->_enquire();
+					$this->session->set_flashdata('success', 'Enquiry was successfully sent!');		
 				}
+				else
+				{
+					$this->session->set_flashdata('error', 'Please enter the characters that appears in the image correctly');
+				}			
 			}
+			else
+			{
+				$this->session->set_flashdata('error', validation_errors());
+			}
+
+			redirect(base_url('contact_us'), 'refresh');
 		}
 
 		$this->load->view('templates/head', $this->data);
 		$this->load->view('templates/navbar', $this->data);
-		$this->load->view('templates/banner', $this->data);
 		$this->load->view('pages/contact_us', $this->data);
 		$this->load->view('templates/footer', $this->data);
 
@@ -52,22 +62,14 @@ class Contact_us extends Public_Controller {
 	private function _load_captcha()
 	{
 		$vals = array(
-			// 'img_path' =>  dirname(getcwd()) . '\app\SCTT\captcha',
 			'img_path' =>  getcwd() . '\captcha\\',
-			'img_url' => base_url('captcha') . '/'
+			'img_url' => base_url('captcha') . '/',
+			'img_width' => '260',
+			'img_height' => '50'
 			);
 
 		$cap = create_captcha($vals);
 		$this->data['image'] = $cap['image'];
-
-		// $img_str = substr($cap['image'], 9);
-		// echo $img_str . '<br />';
-		// $img_pos = strpos($img_str, 'w');
-		// $img_str = substr($img_str, 0, $img_pos);
-
-		// echo $img_str;
-
-		// $this->data['image'] 
 
 		$captcha_data = array(
 			'captcha_time' => $cap['time'],
@@ -76,15 +78,6 @@ class Contact_us extends Public_Controller {
 			);
 
 		$this->captcha_model->generate_captcha($captcha_data);
-	}
-
-	private function _captcha_check()
-	{
-		if($this->captcha_model->verify_captcha())
-		{
-			echo '<button type="button" class="close" data-dismiss="alert">&times;</button>';
-			echo '<div class="alert alert-error">Please submit the word that appears in the image correctly</div>';
-		}
 	}
 
 	private function _enquire()
@@ -108,7 +101,6 @@ class Contact_us extends Public_Controller {
 		$this->email->send();
 
 		echo $this->email->print_debugger();
-		echo 'Enquiry sent!';
 	}
 
 	private function _populate_contact_us_form()

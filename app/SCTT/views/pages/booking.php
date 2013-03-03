@@ -59,17 +59,26 @@
                               <input type="hidden" value="<?php echo $query_p_specific[0]['duration']; ?>" id="duration" name="duration" />
                            </div>
                         <hr />
+
+                        <?php if ($this->session->flashdata('error')): ?>
+                        <div class="row">
+                          <div class="alert alert-error span5">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <?php echo $this->session->flashdata('error'); ?>
+                          </div>
+                        </div>
+                        <?php endif; ?>
                         <div class="control-group">
                            <label class="control-label" for="first_name">Name</label>
                            <div class="controls">
-                              <input type="text" autofocus placeholder="First Name" id="first_name" name="first_name" />
-                              <input type="text" class="input-medium" placeholder="Last Name" id="last_name" name="last_name" />
+                              <input type="text" autofocus placeholder="First Name" id="first_name" name="first_name" required />
+                              <input type="text" class="input-medium" placeholder="Last Name" id="last_name" name="last_name" required />
                            </div>
                         </div>
                         <div class="control-group">
                            <label class="control-label" for="address">Address</label>
                            <div class="controls">
-                              <textarea rows="3" placeholder="Address" id="address" name="address"></textarea>
+                              <textarea rows="3" placeholder="Address" id="address" name="address" required></textarea>
                            </div>
                         </div>
                         <div class="control-group">
@@ -327,7 +336,7 @@
                         <div class="control-group">
                            <label class="control-label" for="contact_no">Contact Number</label>
                            <div class="controls">
-                              <input type="tel" class="input-large" placeholder="Contact Number" id="contact_no" name="contact_no" />
+                              <input type="tel" class="input-large" placeholder="Contact Number" id="contact_no" name="contact_no" required />
                            </div>
                         </div>
                         <div class="control-group">
@@ -339,7 +348,7 @@
                         <div class="control-group">
                            <label class="control-label" for="email">Email</label>
                            <div class="controls">
-                              <input type="text" placeholder="Email" id="email" name="email" />
+                              <input type="email" placeholder="Email" id="email" name="email" required />
                            </div>
                         </div>
                         <div class="control-group">
@@ -360,9 +369,7 @@
                         <div class="control-group">
                            <label class="control-label" for="captcha">Human Verification</label>
                            <div class="controls">
-                              <?php 
-                              // echo $cap['image']; 
-                              ?>
+                              <?php echo $cap['image']; ?>
                               <input class="input-xlarge" type="text" placeholder="Insert what you see in the image above" name="captcha" value="" />
                            </div>
                         </div>

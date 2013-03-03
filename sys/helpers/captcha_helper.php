@@ -111,7 +111,7 @@ if ( ! function_exists('create_captcha'))
 			$pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 			$str = '';
-			for ($i = 0; $i < 8; $i++)
+			for ($i = 0; $i < 5; $i++)
 			{
 				$str .= substr($pool, mt_rand(0, strlen($pool) -1), 1);
 			}
@@ -190,8 +190,8 @@ if ( ! function_exists('create_captcha'))
 
 		if ($use_font == FALSE)
 		{
-			$font_size = 5;
-			$x = rand(0, $img_width/($length/3));
+			$font_size = 15;
+			$x = rand(0, $img_width/($length/1.5));
 			$y = 0;
 		}
 		else

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container spacetop">
     <div class="row">
         <div class="span12 startOpacity">
             <ul class="breadcrumb">
@@ -12,6 +12,22 @@
                 <div class="span7">
                   <?php echo form_open('contact_us', $form['head']); ?>
                      <?php echo form_fieldset(); ?>
+                        <?php if ($this->session->flashdata('error')): ?>
+                        <div class="row">
+                          <div class="alert alert-error span5">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <?php echo $this->session->flashdata('error'); ?>
+                          </div>
+                        </div>
+                        <?php endif; ?>
+                        <?php if ($this->session->flashdata('success')): ?>
+                        <div class="row">
+                          <div class="alert alert-success span5">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <?php echo $this->session->flashdata('success'); ?>
+                          </div>
+                        </div>
+                        <?php endif; ?>
                         <legend><h2>Enquiry Form<?php echo form_reset($form['clear']); ?></h2></legend>
                         <div class="control-group">
                            <?php echo form_label('Name', 'f_name', array('class' => 'control-label')); ?>

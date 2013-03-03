@@ -11,6 +11,7 @@ class Submit_booking extends Public_Controller {
 		$this->load->model('client_model');
 		$this->load->model('captcha_model');
 		$this->load->helper('array');
+		$this->load->library('form_validation');
 	}
 
 	public function index()
@@ -26,30 +27,39 @@ class Submit_booking extends Public_Controller {
 		$this->data['page_uri'] = uri_string();
 		$this->data['nav_active'] = explode('/', $this->data['page_uri']);
 
-		// $this->captcha_model->verify_captcha();
-		// if($this->input->post('submit'))
-		// {
-			// To prevent duplicate entries with the same values (eg. clicking submit button a few times)
-			if(!object_to_array($this->booking_model->get_all_booking_code_start()))
+		if ($this->form_validation->run())
+		{
+			if ($this->captcha_model->verify_captcha())
 			{
-				$this->booking_model->insert_booking();
-			}
-			$this->data['booking'] = object_to_array($this->booking_model->get_all_booking_code_start());
+				if( ! object_to_array($this->booking_model->get_all_booking_code_start()))
+				{
+					$this->booking_model->insert_booking();
+				}
 
-			if(object_to_array($this->client_model->get_client_by_email()))
-			{
-				$this->client_model->update_client_by_email();
+				$this->data['booking'] = object_to_array($this->booking_model->get_all_booking_code_start());
+
+				if(object_to_array($this->client_model->get_client_by_email()))
+				{
+					$this->client_model->update_client_by_email();
+				}
+				else
+				{
+					$this->client_model->insert_client();
+				}
+				$this->data['client'] = object_to_array($this->client_model->get_client_by_email());
+				$this->session->set_flashdata('success', 'Enquiry was successfully sent!');		
 			}
 			else
 			{
-				$this->client_model->insert_client();
+				$this->session->set_flashdata('error', 'Please enter the characters that appears in the image correctly');
+				redirect($this->session->flashdata('redirect'), 'refresh');
 			}
-			$this->data['client'] = object_to_array($this->client_model->get_client_by_email());
-		// }
-		// else
-		// {
-		// 	redirect(base_url());
-		// }
+		}
+		else
+		{
+			$this->session->set_flashdata('error', validation_errors());
+			redirect($this->session->flashdata('redirect'), 'refresh');
+		}
 
 		$this->load->view('templates/head', $this->data);
 		$this->load->view('templates/navbar', $this->data);
