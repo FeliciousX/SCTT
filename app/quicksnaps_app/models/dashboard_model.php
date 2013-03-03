@@ -148,6 +148,17 @@ class Dashboard_model extends CI_Model {
 
     }
 
+    function get_album_by_id($id = 0)
+    {
+    	$id == 0 ? 0 : $id = $id;
+
+    	$this->db->where('id', $id);
+    	$this->db->limit(1);
+		$query = $this->db->get('albums');
+
+		return $query->result();
+    }
+
 
 	function album_count_photos($album)
 	{
@@ -175,11 +186,10 @@ class Dashboard_model extends CI_Model {
 	}
 
 
-	function edit_album($c_prefix = '', $c_code = 0)
+	function edit_album($album)
 	{
 
-        $this->db->where('c_prefix', $c_prefix);
-        $this->db->where('c_code', $c_code);
+        $this->db->where('id', $album);
         $this->db->limit(1);
         $query = $this->db->get('albums');
 
@@ -216,7 +226,7 @@ class Dashboard_model extends CI_Model {
 	function update_album($data)
 	{
 
-		if( ! $data['c_prefix'] OR ! $data['c_code'])
+		if(!$data['id'])
 		{
 			$this->db->insert('albums', $data);
             $id = $this->db->insert_id();
@@ -257,7 +267,7 @@ class Dashboard_model extends CI_Model {
 			$this->db->update('albums', $data);
 		}
 
-		return $data['c_prefix'] . $data['c_code'];
+		return $data['id'];
 
 	}
 

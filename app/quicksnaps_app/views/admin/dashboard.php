@@ -176,7 +176,6 @@
 		}
 ?>
 
-<div id="feedback" class="rounded"><a href="http://www.starfishwebconsulting.co.uk/quicksnaps/feedback" id="feedback_link">Feedback</a></div>
 
 </body>
 

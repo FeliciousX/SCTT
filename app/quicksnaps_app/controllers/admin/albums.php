@@ -9,6 +9,9 @@ class Albums extends QS_Controller
 
 		$this->load->model('Dashboard_model');
 		$this->load->model('Gallery_model');
+		$this->load->model('category_model');
+		$this->load->helper('array');
+		$this->output->enable_profiler(TRUE);
 
 	}
 
@@ -48,10 +51,12 @@ class Albums extends QS_Controller
 		$data['main'][]	= 	'admin/albums_new.php';
 		$data['themes'] = $this->Dashboard_model->get_themes();
 
+		$this->data['query_c'] = object_to_array($this->category_model->get_all_category());
+
 		$this->load->helper('form');
 
 		$this->load->vars($data);
-		$this->load->view('admin/dashboard');
+		$this->load->view('admin/dashboard', $this->data);
 
 	}
 
@@ -77,9 +82,12 @@ class Albums extends QS_Controller
 
 	function submit()
 	{
-
+		$c_prefix = substr($this->input->post('cp_code'), 0, 1); 	// Obtains c_prefix (only 1 alphabet)
+		$c_code = substr($this->input->post('cp_code'), 1); 		// Obtains c_code (undetermined length of numbers)
 		$data = array(
 			'id'		=> $this->input->post('id'),
+			'c_prefix'	=> $c_prefix,
+			'c_code'	=> $c_code,
 			'name' 		=> $this->input->post('name'),
 			'url'		=> url_title($this->input->post('name')),
 			'theme'     => $this->input->post('theme'),

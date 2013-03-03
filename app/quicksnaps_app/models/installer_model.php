@@ -145,6 +145,7 @@ class Installer_Model extends CI_Model
 
 
 		$albums = array(
+									'id' 			=> array('type' => 'INT', 'constraint' => 11, 'auto_increment' => TRUE),
 									'c_prefix' 		=> array('type' => 'CHAR', 'constraint' => 1),
 									'c_code' 		=> array('type' => 'INT', 'constraint' => 2),
 									'name' 			=> array('type' => 'VARCHAR', 'constraint' => 128),
@@ -155,8 +156,7 @@ class Installer_Model extends CI_Model
 									'rank'  	    => array('type' => 'INT', 'constraint' => 11)
 									);
 		$this->dbforge->add_field($albums);
-		$this->dbforge->add_key('c_prefix', TRUE);
-		$this->dbforge->add_key('c_code', TRUE);
+		$this->dbforge->add_key('id', TRUE);
 		$this->dbforge->create_table('albums', TRUE);
 
 

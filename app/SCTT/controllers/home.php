@@ -8,6 +8,7 @@ class Home extends Public_Controller {
 		$this->load->model('category_model');
 		$this->load->model('package_model');
 		$this->load->model('banner_model');
+		$this->load->model('image_model');
 		$this->load->helper('array');
 	}
 
@@ -35,7 +36,8 @@ class Home extends Public_Controller {
 				$this->data['query_p_by_c'] = $this->package_model->get_package_by_category($category['c_prefix'], $category['c_code']);
 				$this->data['str_holder_c'][$counter] = $category;
 				$this->data['str_holder_p'][$counter] = object_to_array($this->data['query_p_by_c']);
-				$this->data['img_url'][$counter] = base_url('img/category/' . $category['c_prefix'] . $category['c_code']);
+				$album = object_to_array($this->image_model->get_album_by_cp($category['c_prefix'], $category['c_code']));
+				$this->data['images'][$counter] = object_to_array(@$this->image_model->get_all_photos_by_id($album[0]['id']));
 				++$counter;
 			}
 		}

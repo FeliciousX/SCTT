@@ -48,7 +48,7 @@
                     ?>
                      <div class="span4">
                          <a class="tile" href="<?php echo base_url('package/' . $query_p_by_c[$count]['p_link_to']); ?>">
-                             <div class="tile one" style = "background-image: url('<?php echo $img_url . '/' . ($count + 1) . '/1.png'; ?>');">
+                             <div class="tile one" style = "background-image: url('<?php echo base_url() . $images[$count]['photo'] . '_thumb' .  $images[$count]['photo_type']; ?>');">
                                  <p class="tilefont"><?php echo $query_p_by_c[$count]['p_name']; ?></p>
                              </div>
                          </a>
