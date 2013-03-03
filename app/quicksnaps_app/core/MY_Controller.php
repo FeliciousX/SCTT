@@ -11,14 +11,6 @@
  */
 class MY_Controller extends CI_Controller {
 	
-	function __construct()
-	{
-		parent::__construct();
-
-		// Debugging purposes. Will be removed during production.
-		$this->output->enable_profiler(TRUE);
-	}
-
 }
 
 require_once('../app/quicksnaps_app/core/Install_Controller.php');
