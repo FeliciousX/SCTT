@@ -7,6 +7,7 @@ class Package extends Public_Controller {
 		parent::__construct();
 		$this->load->model('category_model');
 		$this->load->model('package_model');
+		$this->load->model('image_model');
 		$this->load->helper(array('array', 'directory'));
 	}
 
@@ -51,31 +52,23 @@ class Package extends Public_Controller {
 
 	private function _populate_banner($c_prefix = '', $c_code = 0, $p_code = 0)
 	{
-		$url = 'img/category/' . $c_prefix . $c_code . '/' . $p_code;
+		$album = $this->image_model->get_album_by_cp_code($c_prefix, $c_code, $p_code);
+		$photos = object_to_array($this->image_model->get_all_photos_by_id($album[0]->id));
 
-		$map = directory_map('./' . $url);
+		$i = 0;
 
-		$j = 0;
-		$k = 0;
-
-		for ($i=0; $i < count($map); $i = $i + 2)
+		foreach ($photos as $item)
 		{
-			$item_url[$i] = img($url . '/' . $map[$i]);
+			$this->data['item']['img'][$i] = img($item['photo'] . $item['photo_type']);
 
-			$this->data['item']['img'][$j] = $item_url[$i];
-			
-			if (file_exists($url . '/' . substr($map[$i], 0, -3) . 'txt'))
-			{
-				$description = file_get_contents(base_url($url . '/' . substr($map[$i], 0, -3) . 'txt'));
-			
-				$this->data['item']['caption'][$j] = '<div class="container"><div class="carousel-caption"><p class="lead">' . $description . ' </p>	</div></div>';
-			}
-			else
-			{
-				$this->data['item']['caption'][$j] = '';
-			}
-			
-			$j++;
+			$this->data['item']['caption'][$i] = "<div class=\"container\"><div class=\"carousel-caption\">
+					<p class=\"lead\">{$item['name']}</p>
+					</div>
+					</div>";
+
+
+
+			$i++;
 		}
 	}
 }

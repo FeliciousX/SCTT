@@ -98,7 +98,7 @@ class Gallery_model extends CI_Model {
 	*/
 	function count_albums()
 	{
-
+		$this->db->select('id');
         $this->db->select('c_prefix');
         $this->db->select('c_code');
         $this->db->where('private', 0);
@@ -143,7 +143,7 @@ class Gallery_model extends CI_Model {
 	*/
 	function get_albums_photo_count()
 	{
-
+		$this->db->select('id');
         $this->db->select('c_prefix');
         $this->db->select('c_code');
         $this->db->where('private !=', 1);
@@ -262,7 +262,7 @@ class Gallery_model extends CI_Model {
     function get_album_title($album)
     {
 
-        $this->db->select('c_prefix, c_code, name, url, full_txt, theme, private');
+        $this->db->select('id, c_prefix, c_code, name, url, full_txt, theme, private');
         $this->db->where('url =', $album);
 		$query = $this->db->get('albums');
 

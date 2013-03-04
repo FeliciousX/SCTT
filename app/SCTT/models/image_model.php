@@ -62,17 +62,13 @@ class Image_model extends CI_Model {
     	return $query->result();
     }
 
-    function get_all_photos_by_id_code($id = 0, $p_code = 0)
+    function get_all_photos_by_id($id = 0)
     {
     	$id == 0 ? 0 : $id = $id;
-    	$p_code == 0 ? 0 : $p_code = $p_code;
 
     	$this->db->from('photos');
 
     	$this->db->where('album', $id);
-    	$this->db->where('p_code', $p_code);
-
-    	$this->db->order_by('p_code', 'asc');
 
     	$query = $this->db->get();
 
