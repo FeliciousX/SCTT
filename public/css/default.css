@@ -27,6 +27,17 @@ label {
 	font-size: 20px;
 }
 
+.logo:hover {
+	background-image: url('../img/SCTT_logo_alpha_white_xsmall.png');
+	background-size: 70px 61px;
+}
+
+.nav-collapse {
+	padding-top: 10px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
 .nav-header {
 	text-transform: capitalize;
 }
