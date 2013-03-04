@@ -1,5 +1,5 @@
 
-<?php echo anchor('admin/albums/new_album', 'Create New album', array('class' => 'album')); ?> |
+<?php echo anchor('admin/albums/select_category', 'Create New album', array('class' => 'album')); ?> |
 <?php echo anchor('admin/albums/reorder', 'Reorder Albums', array('class' => 'reorder')); ?>
 
 <?php

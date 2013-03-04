@@ -36,8 +36,11 @@ class Home extends Public_Controller {
 				$this->data['query_p_by_c'] = $this->package_model->get_package_by_category($category['c_prefix'], $category['c_code']);
 				$this->data['str_holder_c'][$counter] = $category;
 				$this->data['str_holder_p'][$counter] = object_to_array($this->data['query_p_by_c']);
-				$album = object_to_array($this->image_model->get_album_by_cp($category['c_prefix'], $category['c_code']));
-				$this->data['images'][$counter] = object_to_array(@$this->image_model->get_all_photos_by_id($album[0]['id']));
+				for($i=0; $i<4; $i++)
+				{
+					$album = object_to_array($this->image_model->get_album_by_cp_code($category['c_prefix'], $category['c_code'], $this->data['str_holder_p'][0][$i]['p_code']));
+					$this->data['images'][$counter][$i] = object_to_array(@$this->image_model->get_highlight_photos_by_id($album[0]['id']));
+				}
 				++$counter;
 			}
 		}
@@ -50,6 +53,7 @@ class Home extends Public_Controller {
 		$this->load->view('pages/home', $this->data);
 		$this->load->view('templates/footer', $this->data);
 	}
+
 
 	/**
 	* Populates the banner for the home page.

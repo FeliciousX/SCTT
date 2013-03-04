@@ -9,10 +9,8 @@ class Photos extends QS_Controller
 		parent::__construct();
 
 		$this->load->helper(array('form', 'text'));
-		$this->load->helper('array');
 		$this->load->model('Dashboard_model');
 		$this->load->model('Gallery_model');
-		$this->load->model('package_model');
 		$this->output->enable_profiler(TRUE);
 
 	}
@@ -107,9 +105,6 @@ class Photos extends QS_Controller
 		$data['title']	=	'Album: '.$data['album_name'];
 		$data['h1']		= 	'Add a new photo in '.$data['album_name'];
 		$data['main'][]	= 	'admin/photos_new.php';
-
-		$query_album = object_to_array($this->Dashboard_model->get_album_by_id($data['album']));
-		$data['query_p_by_c'] = object_to_array($this->package_model->get_package_by_category($query_album[0]['c_prefix'], $query_album[0]['c_code']));
 
 		$this->load->view('admin/dashboard', $data);
 
@@ -221,7 +216,6 @@ class Photos extends QS_Controller
 
 		$data = array(
 			'album'		=> $this->input->post('album'),
-			'p_code'	=> $this->input->post('p_code'),
 			'name' 		=> $this->input->post('name')
 		);
 

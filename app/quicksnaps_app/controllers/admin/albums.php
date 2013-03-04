@@ -10,6 +10,7 @@ class Albums extends QS_Controller
 		$this->load->model('Dashboard_model');
 		$this->load->model('Gallery_model');
 		$this->load->model('category_model');
+		$this->load->model('package_model');
 		$this->load->helper('array');
 		$this->output->enable_profiler(TRUE);
 
@@ -42,6 +43,18 @@ class Albums extends QS_Controller
 		$this->load->view('admin/dashboard');
 	}
 
+	function select_category()
+	{
+		$data['title']	=	'Albums';
+		$data['h1']		= 	'Select Category for New Album';
+		$data['main'][]	= 	'admin/select_category.php';
+
+		$this->data['query_c'] = object_to_array($this->category_model->get_all_category());
+		$this->load->helper('form');
+
+		$this->load->vars($data);
+		$this->load->view('admin/dashboard', $this->data);
+	}
 
 	function new_album()
 	{
@@ -51,8 +64,10 @@ class Albums extends QS_Controller
 		$data['main'][]	= 	'admin/albums_new.php';
 		$data['themes'] = $this->Dashboard_model->get_themes();
 
-		$this->data['query_c'] = object_to_array($this->category_model->get_all_category());
-
+		$data['c_prefix'] = substr($this->input->post('cp_code'), 0, 1); 	// Obtains c_prefix (only 1 alphabet)
+		$data['c_code'] = substr($this->input->post('cp_code'), 1); 		// Obtains c_code (undetermined length of numbers)
+		
+		$this->data['query_p_by_c'] = object_to_array($this->package_model->get_package_by_category($data['c_prefix'], $data['c_code']));
 		$this->load->helper('form');
 
 		$this->load->vars($data);
@@ -88,6 +103,7 @@ class Albums extends QS_Controller
 			'id'		=> $this->input->post('id'),
 			'c_prefix'	=> $c_prefix,
 			'c_code'	=> $c_code,
+			'p_code'	=> $this->input->post('p_code'),
 			'name' 		=> $this->input->post('name'),
 			'url'		=> url_title($this->input->post('name')),
 			'theme'     => $this->input->post('theme'),

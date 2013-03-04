@@ -7,11 +7,17 @@
 
 	<div>
 		<label>Category Code:</label>
-		<select name="cp_code" id="cp_code">
+		<input type="disabled" value="<?php echo $c_prefix . $c_code; ?>">
+		<input type="hidden" name="cp_code" id="cp_code" value="<?php echo $c_prefix . $c_code; ?>">
+	</div>
+
+	<div>
+		<label>Package Code:</label>
+		<select name="p_code" id="p_code">
 			<?php  
-				foreach($query_c as $category)
+				foreach($query_p_by_c as $package)
 				{
-					echo '<option value="' . $category['c_prefix'] . $category['c_code'] . '">' .  $category['c_prefix'] . $category['c_code'] . '</option>';
+					echo '<option value="' . $package['p_code'] . '">' . $package['p_code'] . '</option>';
 				}
 			?>
 		</select>

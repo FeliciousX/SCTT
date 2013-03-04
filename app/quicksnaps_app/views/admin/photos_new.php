@@ -8,18 +8,6 @@
 	</div>
 
 	<div>
-		<label>Package Code:</label>
-		<select name="p_code" id="p_code">
-			<?php  
-				foreach($query_p_by_c as $package)
-				{
-					echo '<option value="' . $package['p_code'] . '">' .  $package['p_code'] . '</option>';
-				}
-			?>
-		</select>
-	</div>
-
-	<div>
 		<label>Caption:</label>
 		<input type="text" name="name" value="" />
 	</div>

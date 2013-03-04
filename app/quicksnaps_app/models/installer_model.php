@@ -148,6 +148,7 @@ class Installer_Model extends CI_Model
 									'id' 			=> array('type' => 'INT', 'constraint' => 11, 'auto_increment' => TRUE),
 									'c_prefix' 		=> array('type' => 'CHAR', 'constraint' => 1),
 									'c_code' 		=> array('type' => 'INT', 'constraint' => 2),
+									'p_code'		=> array('type' => 'INT', 'constraint' => 3),
 									'name' 			=> array('type' => 'VARCHAR', 'constraint' => 128),
 									'url'	    	=> array('type' => 'VARCHAR', 'constraint' => 128),
 									'full_txt'   	=> array('type' => 'TEXT'),
@@ -162,7 +163,6 @@ class Installer_Model extends CI_Model
 
 		$photos = array(
 									'id' 			=> array('type' => 'INT', 'constraint' => 11, 'auto_increment' => TRUE),
-									'p_code'		=> array('type' => 'INT', 'constraint' => 3),
 									'album'	        => array('type' => 'INT', 'constraint' => 11),
 									'name' 			=> array('type' => 'VARCHAR', 'constraint' => 128),
 									'photo'	    	=> array('type' => 'VARCHAR', 'constraint' => 128),
