@@ -46,6 +46,10 @@ div.navbar {
 	margin-bottom: 0;
 }
 
+.no-shadow {
+	text-shadow: none;
+}
+
 .plain {
 	color: #FFF;
 	cursor: default;

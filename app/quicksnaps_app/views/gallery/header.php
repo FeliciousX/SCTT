@@ -16,6 +16,8 @@
 
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/reset.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="<?php echo base_url(); ?>themes/<?php echo $theme; ?>/style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.min.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="<?php echo base_url(); ?>css/default.css" type="text/css" media="screen" />
 
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/slimbox2.css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/fancybox/jquery.fancybox-1.3.1.css" media="screen" />

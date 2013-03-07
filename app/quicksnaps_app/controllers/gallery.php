@@ -70,6 +70,7 @@ class Gallery extends QS_Controller {
 		$data['js']		    = $this->Gallery_model->get_theme_js($data['theme']);
 		$data['favicon']	= $this->Gallery_model->get_theme_favicon($data['theme']);
 
+		$this->load->view('gallery/navbar', $this->data);
 		$this->load->view('gallery/gallery', $data);
 
 	}
