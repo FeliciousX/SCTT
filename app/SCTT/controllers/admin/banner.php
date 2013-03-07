@@ -273,21 +273,20 @@ class Banner extends Admin_Controller {
 
 
 
-		$pages = count($this->banner_model->get_all_banner());
+		$pages = object_to_array($this->banner_model->get_all_banner());
 
 
-
-		for ($i=1; $i <= $pages; $i++)
+		for ($i=0; $i < count($pages); $i++)
 
 		{
 
-			$this->data['form']['page'][$i] = $i;
+			$this->data['form']['page'][$pages[$i]['id']] = $i+1;
 
 		}
 
 
 
-		$this->data['form']['selected_page'] = $pages;
+		$this->data['form']['selected_page'] = count($pages)+1;
 
 
 
@@ -399,7 +398,7 @@ class Banner extends Admin_Controller {
 
 
 
-		$this->banner_model->insert_banner('', '', '', '', '', '', '');
+		$this->banner_model->insert_banner('', '', '', '', '', '');
 
 
 
@@ -485,7 +484,7 @@ class Banner extends Admin_Controller {
 
 
 
-		$pages = $this->banner_model->get_all_banner();
+		$pages = object_to_array($this->banner_model->get_all_banner());
 
 
 
@@ -493,7 +492,7 @@ class Banner extends Admin_Controller {
 
 		{
 
-			$this->data['form']['page'][$i] = $pages[$i]['id'];
+			$this->data['form']['page'][$pages[$i]['id']] = $i+1;
 
 		}
 
