@@ -45,7 +45,7 @@
 | the active record class
 */
 
-$active_group = 'default';
+$active_group = 'debug';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
@@ -63,6 +63,22 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
+
+$db['debug']['hostname'] = 'localhost';
+$db['debug']['username'] = 'root';
+$db['debug']['password'] = '';
+$db['debug']['database'] = 'sctt';
+$db['debug']['dbdriver'] = 'mysql';
+$db['debug']['dbprefix'] = '';
+$db['debug']['pconnect'] = TRUE;
+$db['debug']['db_debug'] = TRUE;
+$db['debug']['cache_on'] = FALSE;
+$db['debug']['cachedir'] = '';
+$db['debug']['char_set'] = 'utf8';
+$db['debug']['dbcollat'] = 'utf8_general_ci';
+$db['debug']['swap_pre'] = '';
+$db['debug']['autoinit'] = TRUE;
+$db['debug']['stricton'] = FALSE;
 
 
 /* End of file database.php */
