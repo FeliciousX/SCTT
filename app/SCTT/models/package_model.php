@@ -317,8 +317,6 @@ class Package_model extends CI_Model {
 
     {
 
-        $this->db->from('package');
-
         $p_code == 0 ? 0 : $this->p_code = $p_code;
 
         $c_prefix == '' ? '' : $this->c_prefix = $c_prefix;
