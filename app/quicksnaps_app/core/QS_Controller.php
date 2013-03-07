@@ -25,6 +25,22 @@ class QS_Controller extends MY_Controller {
 	{
 		parent::__construct();
 
+		$this->data['nav_list'] = array(
+
+						anchor('/home', 'Home'),
+
+						anchor('/category', 'Tour Packages'),
+
+						anchor('/gallery.php', 'Photo Gallery'),
+
+						anchor('/sarawak_and_sabah', 'About Sarawak &amp; Sabah'),
+
+						anchor('/testimonial', 'Testimonial'),
+
+						anchor('/contact_us', 'Contact Us')
+
+						);
+		
 		$this->_check_installed();
 
 		$this->load->database();
