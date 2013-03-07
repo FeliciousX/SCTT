@@ -49,9 +49,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'sctt';
+$db['default']['username'] = 'borneofo_sam';
+$db['default']['password'] = 'SCAtravel9916*';
+$db['default']['database'] = 'borneofo_sctt';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

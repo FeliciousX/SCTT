@@ -56,7 +56,7 @@ class QS_Controller extends MY_Controller {
 	function _check_installed()
 	{
 
-		if ( !file_exists('../app/quicksnaps_app/config/database.php') )
+		if ( !file_exists('app/quicksnaps_app/config/database.php') )
 		{
 			redirect('installer', 'refresh');
 		}

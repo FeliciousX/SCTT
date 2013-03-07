@@ -14,7 +14,7 @@ class Booking extends Public_Controller {
 
 	public function index($cp_code = '')
 	{
-		if ( ! file_exists('../app/SCTT/views/pages/booking.php'))
+		if ( ! file_exists('app/SCTT/views/pages/booking.php'))
 		{
 			// Whoops, we don't have a page for that!
 			show_404();
@@ -54,7 +54,7 @@ class Booking extends Public_Controller {
 	private function _load_captcha()
 	{
 		$vals = array(
-			'img_path' =>  getcwd() . '\captcha\\',
+			'img_path' =>  getcwd() . '/captcha/',
 			'img_url' => base_url('captcha') . '/',
 			'img_width' => '260',
 			'img_height' => '50'
