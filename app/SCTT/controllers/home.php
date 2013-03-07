@@ -78,8 +78,7 @@ class Home extends Public_Controller {
 
 				{
 
-					$album = object_to_array($this->image_model->get_album_by_cp_code($category['c_prefix'], $category['c_code'], $this->data['str_holder_p'][0][$i]['p_code']));
-
+					$album = object_to_array($this->image_model->get_album_by_cp_code($category['c_prefix'], $category['c_code'], $this->data['str_holder_p'][$counter][$i]['p_code']));
 					$this->data['images'][$counter][$i] = object_to_array($this->image_model->get_highlight_photos_by_id($album[0]['id']));
 
 				}
